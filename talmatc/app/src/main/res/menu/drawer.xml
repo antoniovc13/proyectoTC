@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/menuTrasladoCarga"
+            android:icon="@mipmap/ic_ticket"
+            android:title="Traslado de Carga" />
+
+
+        <item android:title="Cuenta">
+            <menu>
+                <item
+                    android:id="@+id/nav_about"
+                    android:icon="@drawable/ic_menu_manage"
+                    android:title="Acerca" />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@mipmap/ic_exit"
+                    android:title="Cerrar Sesion" />
+            </menu>
+        </item>
+
+    </group>
+</menu>

@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:gravity="center_horizontal"
+    android:background="@color/colorPrimary"
+    tools:context="com.tivit.talmatc.feature.login.LoginActivity">
+
+    <ImageView
+        android:id="@+id/img_dialog_fullscreen_close"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/ic_close_about"
+        android:clickable="true"
+        android:layout_margin="20dp"/>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_below="@id/pnlSplash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:text="Tivit APP" />
+
+    <TextView
+        android:id="@+id/tvVersion"
+        android:layout_below="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        android:textAlignment="center"
+        android:text="Version 1.5.0 \n Revision 1" />
+
+    <LinearLayout
+        android:id="@+id/pnlSplash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:layout_marginTop="100dp"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/imgLogoLogin2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerInside"
+            android:src="@mipmap/logo"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

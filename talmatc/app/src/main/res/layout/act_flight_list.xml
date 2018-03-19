@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tivit.talmatc.feature.traslado_carga.flight_list.FlightListActivity"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <include android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_below="@+id/toolbar"
+        android:paddingBottom="30dp">
+
+        <LinearLayout
+            style="@style/general_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    style="@style/Widget.Group.Top">
+
+                    <TextView
+                        style="@style/data_title"
+                        android:text="AGREGAR VUELO" />
+
+                </RelativeLayout>
+
+                <View style="@style/separator" />
+
+                <LinearLayout
+                    style="@style/Widget.Group"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/data_label"
+                            android:text="Vuelo" />
+
+                        <AutoCompleteTextView
+                            android:id="@+id/actv_vuelo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:completionThreshold="1"
+                            android:hint="Búsqueda de Vuelo"
+                            android:maxLines="1"
+                            android:paddingBottom="8dp"
+                            android:paddingLeft="10dp"
+
+                            android:paddingTop="8dp"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                    <View style="@style/separator_vertical" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/id_btn_agregarvuelo"
+                            style="@style/Button.Primary"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:text="Agregar" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    style="@style/Widget.Group.Top">
+
+                    <TextView
+                        style="@style/data_title"
+                        android:text="LISTADO DE VUELOS" />
+
+                </RelativeLayout>
+
+                <View style="@style/separator" />
+
+                <LinearLayout
+                    style="@style/Widget.Group"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_msj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No se encontraron elementos"
+                        android:visibility="visible" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_list_flight"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

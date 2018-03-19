@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tivit.talmatc.feature.traslado_carga.selected.ChargeMoveFragment"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <com.vlonjatg.progressactivity.ProgressActivity
+        android:id="@+id/progress_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        app:progressEmptyStateTitleTextColor="@color/md_grey_600"
+        app:progressEmptyStateContentTextColor="@color/md_grey_400"
+        app:progressEmptyStateImageWidth="60dp"
+        app:progressErrorStateTitleTextColor="@color/md_grey_600"
+        app:progressErrorStateContentTextColor="@color/md_grey_400"
+        app:progressErrorStateImageWidth="60dp">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swpRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="30dp" >
+
+                <LinearLayout
+                    style="@style/general_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                style="@style/Widget.Group.Top">
+
+                                <TextView
+                                    style="@style/data_title"
+                                    android:text="DATOS DE USUARIO" />
+
+                            </RelativeLayout>
+
+                            <View style="@style/separator" />
+
+                            <LinearLayout
+                                android:id="@+id/lytFilial"
+                                style="@style/Widget.Group"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingBottom="10dp">
+
+                                <TextView
+                                    style="@style/data_label"
+                                    android:text="Nombre de Conductor" />
+
+                                <TextView
+                                    android:id="@+id/id_tv_name"
+                                    style="@style/data_text"
+                                    android:layout_width="match_parent"
+                                    android:text="" />
+
+                            </LinearLayout>
+
+                            <View style="@style/separator" />
+
+                            <LinearLayout
+                                style="@style/Widget.Group"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingBottom="10dp">
+
+                                <TextView
+                                    style="@style/data_label"
+                                    android:text="Cargo" />
+
+                                <TextView
+                                    android:id="@+id/id_tv_charge"
+                                    style="@style/data_text"
+                                    android:layout_width="match_parent"
+                                    android:text="" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                style="@style/Widget.Group.Top">
+
+                                <TextView
+                                    style="@style/data_title"
+                                    android:text="DATOS DE VEHICULO" />
+
+                            </RelativeLayout>
+
+                            <View style="@style/separator" />
+
+                            <LinearLayout
+                                style="@style/Widget.Group"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingBottom="10dp">
+
+                                <TextView
+                                    android:id="@+id/id_tv_typevehicle"
+                                    style="@style/data_label"
+                                    android:text="Tractor" />
+
+                                <Spinner
+                                    android:id="@+id/id_spi_tractor"
+                                    style="@style/data_value_match"
+                                    android:layout_height="25dp"
+                                    android:spinnerMode="dialog" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:paddingTop="20dp">
+
+                                <Button
+                                    android:id="@+id/id_btn_subir"
+                                    style="@style/Button.Primary"
+                                    android:layout_gravity="center"
+                                    android:layout_margin="10dp"
+                                    android:layout_weight="1"
+                                    android:text="Subir Elementos" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </com.vlonjatg.progressactivity.ProgressActivity>
+
+</RelativeLayout>

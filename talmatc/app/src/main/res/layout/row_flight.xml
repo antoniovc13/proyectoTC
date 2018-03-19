@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/viewImg"
+        style="@style/data_container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/lytData"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/lytData">
+
+        <ImageView
+            android:id="@+id/row_icon"
+            android:layout_width="16dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_view_grey" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lytData"
+        style="@style/data_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/viewImg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/row_description"
+            style="@style/data_value_and_data_layout"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxLines="1"
+            android:text="Nombre" />
+    </LinearLayout>
+
+<!--
+    <ImageView
+        android:id="@+id/row_icon"
+        android:layout_width="16dp"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/row_description"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ic_view_grey" />
+
+    <TextView
+        android:id="@+id/row_description"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/row_icon"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/row_icon"
+        style="@style/data_value_and_data_layout"
+        android:text="Nombre" />
+    -->
+</RelativeLayout>
