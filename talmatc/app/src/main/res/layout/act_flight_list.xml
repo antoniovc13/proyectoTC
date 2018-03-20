@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tivit.talmatc.feature.flight.list.FlightListActivity"
+    tools:context="com.tivit.talmatc.feature.traslado_carga.flight_list.FlightListActivity"
     android:focusable="true"
     android:focusableInTouchMode="true">
 
@@ -27,32 +27,35 @@
             android:animateLayoutChanges="true"
             android:orientation="vertical">
 
-            <android.support.v7.widget.CardView
-                style="@style/cardview_default"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    style="@style/Widget.Group.Top">
+
+                    <TextView
+                        style="@style/data_title"
+                        android:text="AGREGAR VUELO" />
+
+                </RelativeLayout>
+
+                <View style="@style/separator" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingBottom="10dp"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:paddingTop="10dp">
+                    style="@style/Widget.Group"
+                    android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="4"
+                        android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/lblVuelo"
-                            style="@style/cardview_tittle_and_data_layout"
-                            android:layout_width="match_parent"
-                            android:layout_centerVertical="true"
-                            android:text="Vuelo:" />
+                            style="@style/data_label"
+                            android:text="Vuelo" />
 
                         <AutoCompleteTextView
                             android:id="@+id/actv_vuelo"
@@ -70,123 +73,61 @@
 
                     </LinearLayout>
 
+                    <View style="@style/separator_vertical" />
+
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:orientation="vertical">
 
-                        <LinearLayout
+                        <Button
+                            android:id="@+id/id_btn_agregarvuelo"
+                            style="@style/Button.Primary"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_centerVertical="false"
-                            android:gravity="center_vertical"
-                            android:orientation="vertical">
-
-                            <ImageButton
-                                android:id="@+id/ib_findvuelo"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:background="@color/md_teal_A400"
-                                android:contentDescription="Buscar"
-                                android:padding="5dp"
-
-                                android:scaleType="fitCenter"
-                                android:src="@mipmap/ic_add_circle_outline_white_24dp" />
-                            -
-                            <!--
-                                    <com.tivit.talmatc.base.generic.RoundedImageView
-                                        android:id="@+id/ib_findvuelo"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:scaleType="fitCenter"
-                                        android:padding="5dp"
-                                        android:layout_gravity="center"
-                                        android:background="@color/md_teal_A400"
-                                        app:srcCompat="@mipmap/ic_add_circle_outline_white_24dp" />
--->
-                        </LinearLayout>
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:text="Agregar" />
 
                     </LinearLayout>
 
-
                 </LinearLayout>
 
-            </android.support.v7.widget.CardView>
+            </LinearLayout>
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/cv_datos_extras"
-                style="@style/cardview_default"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    style="@style/Widget.Group.Top">
+
+                    <TextView
+                        style="@style/data_title"
+                        android:text="LISTADO DE VUELOS" />
+
+                </RelativeLayout>
+
+                <View style="@style/separator" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget.Group"
                     android:orientation="vertical">
-
-                    <RelativeLayout
-                        style="@style/data_layout_and_data_container"
+                    <TextView
+                        android:id="@+id/tv_msj"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:text="No se encontraron elementos"
+                        android:visibility="visible" />
 
-                        <TextView
-                            android:id="@+id/lblTituloExtra"
-                            style="@style/cardview_tittle_and_data_layout"
-                            android:layout_centerVertical="true"
-                            android:paddingLeft="10dp"
-                            android:text="Listado de Vuelos" />
-
-                        <TextView
-                            android:id="@+id/btnLimpiar2"
-                            style="@style/text_button"
-                            android:layout_alignParentBottom="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:text="Limpiar"
-                            android:visibility="gone" />
-
-                    </RelativeLayout>
-
-                    <View style="@style/separator" />
-
-<!--
-                    <com.vlonjatg.progressactivity.ProgressRelativeLayout
-                        android:id="@+id/progress_loading"
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_list_flight"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@id/toolbar"
-                        app:emptyContentTextColor="@color/md_grey_400"
-                        app:emptyTitleTextColor="@color/md_grey_600"
-                        app:errorContentTextColor="@color/md_grey_400"
-                        app:errorTitleTextColor="@color/md_grey_600">
-
-                        <android.support.v4.widget.SwipeRefreshLayout
-                            android:id="@+id/swpRefresh"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
--->
-                            <LinearLayout
-                                style="@style/data_layout_and_data_container"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <android.support.v7.widget.RecyclerView
-                                    android:id="@+id/rv_list_flight"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent" />
-                            </LinearLayout>
-<!--
-                        </android.support.v4.widget.SwipeRefreshLayout>
-
-                    </com.vlonjatg.progressactivity.ProgressRelativeLayout>
--->
+                        android:layout_height="match_parent" />
                 </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-
+            </LinearLayout>
 
         </LinearLayout>
 

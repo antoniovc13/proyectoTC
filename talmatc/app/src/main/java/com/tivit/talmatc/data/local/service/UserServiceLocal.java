@@ -1,6 +1,7 @@
 package com.tivit.talmatc.data.local.service;
 
 import com.tivit.talmatc.data.local.model.Parameter;
+import com.tivit.talmatc.data.local.model.User;
 import com.tivit.talmatc.data.remote.model.Authorization;
 import com.tivit.talmatc.data.remote.model.Login;
 
@@ -13,6 +14,7 @@ import io.reactivex.Observable;
  */
 
 public interface UserServiceLocal {
+    /*
     Observable<List<Parameter>> findAllSituations();
 
     Observable<List<Parameter>> findAllActions();
@@ -20,8 +22,14 @@ public interface UserServiceLocal {
     Observable<Boolean> isSituationsEmpty();
 
     Observable<Boolean> isActionsEmpty();
-
+*/
     Observable<Boolean> saveCatalogParameter(List<Parameter> list);
 
     Observable<Authorization> getAuthorizationLogin(Login login);
+
+    Observable<List<Parameter>> findAllTractors();
+
+    Observable<List<Parameter>> findAllVehicles(String typeVehicle);
+
+    Observable<User> findUserByUsernameAndPassword(Login login);
 }

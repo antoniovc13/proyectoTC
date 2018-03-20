@@ -16,6 +16,8 @@ public interface ParameterRepository extends GenericRepository<Parameter> {
 
     long countByEntidad(String[] whereArgs);
 
+    /*
     //agregado
     Authorization getAuthorizationLogin(Login login);
+    */
 }

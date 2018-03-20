@@ -15,6 +15,7 @@ import com.tivit.talmatc.TivitApplication;
 import com.tivit.talmatc.utils.Configuration;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -24,7 +25,8 @@ import butterknife.ButterKnife;
  * Created by Alexzander Guillermo on 31/08/2017.
  */
 
-public class FlightListAdapter extends RecyclerView.Adapter<FlightListAdapter.FlightListViewHolder> {
+public class FlightListAdapter extends RecyclerView.Adapter<FlightListAdapter.FlightListViewHolder>
+        implements ItemTouchHelperAdapter{
 
     private Callback mCallback;
     private List<Flight> mFlightResponseList;
@@ -39,9 +41,30 @@ public class FlightListAdapter extends RecyclerView.Adapter<FlightListAdapter.Fl
         mCallback = callback;
     }
 
+    @Override
+    public void onItemDismiss(int position) {
+        mFlightResponseList.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    @Override
+    public void onItemMove(int fromPosition, int toPosition) {
+        if (fromPosition < toPosition) {
+            for (int i = fromPosition; i < toPosition; i++) {
+                Collections.swap(mFlightResponseList, i, i + 1);
+            }
+        } else {
+            for (int i = fromPosition; i > toPosition; i--) {
+                Collections.swap(mFlightResponseList, i, i - 1);
+            }
+        }
+        notifyItemMoved(fromPosition, toPosition);
+    }
+
     public interface Callback {
         void onItemRowClicked(Flight data, int position);
     }
+
 
     @Override
     public FlightListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -83,6 +106,8 @@ public class FlightListAdapter extends RecyclerView.Adapter<FlightListAdapter.Fl
                 mCallback.onItemRowClicked(data, position);
             }
         });
+
+        //holder.itemView.setOn
     }
 
     @Override
@@ -113,6 +138,10 @@ public class FlightListAdapter extends RecyclerView.Adapter<FlightListAdapter.Fl
 
         ((Flight)mFlightResponseList.get(position)).setCountElements(value);
         notifyDataSetChanged();
+    }
+
+    public Flight getItem(int position){
+        return ((Flight)mFlightResponseList.get(position));
     }
 
 }

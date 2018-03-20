@@ -26,6 +26,7 @@ public class LoginPresenter<V extends LoginContract.LoginView> extends BasePrese
 
     @Override
     public void startLogin(Login login) {
+        //mView.hideLoading();
         mView.showLoading("Validando Credenciales");
         mInteractor.callApiAuthLogin(login, this);
     }
@@ -34,6 +35,12 @@ public class LoginPresenter<V extends LoginContract.LoginView> extends BasePrese
     public void onViewInitialized() {
         mInteractor.callPreferencesCheckAuth(this);
     }
+
+    @Override
+    public void showLoading(String message) {
+        mView.showLoadingActivity(message);
+    }
+
 
     /* ======= START LISTENER ======= */
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Talma</string>
+    <string name="app_name">TalmaTC</string>
 
     <!--Drawer-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -50,5 +50,16 @@
 
     <string name="error_enter_email">Por favor, escribe tu correo electrónico</string>
     <string name="error_invalid_email">Correo electrónico no valido</string>
+
+    <!-- Dialog componente numerico-->
+    <string name="digits_zero">0</string>
+    <string name="digits_one">1</string>
+    <string name="digits_two">2</string>
+    <string name="digits_three">3</string>
+    <string name="digits_four">4</string>
+    <string name="digits_five">5</string>
+    <string name="digits_six">6</string>
+    <string name="digits_plus">+</string>
+    <string name="digits_ok">OK</string>
 
 </resources>

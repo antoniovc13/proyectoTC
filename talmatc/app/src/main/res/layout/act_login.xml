@@ -10,12 +10,14 @@
     android:gravity="center_horizontal"
     tools:context=".feature.login.LoginActivity">
 
+
+
     <ScrollView
         android:id="@+id/pnlLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,12 +28,14 @@
 
             <ImageView
                 android:id="@+id/imgLogoLogin"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_weight="4"
                 android:scaleType="centerInside"
-                android:src="@mipmap/logo" />
+                android:scaleX="4"
+                android:scaleY="4"
+                android:src="@mipmap/ic_stat_logo_png" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -107,5 +111,26 @@
         </LinearLayout>
 
     </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/pnlSplash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/imgLogoLogin2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerInside"
+            android:src="@mipmap/logo"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

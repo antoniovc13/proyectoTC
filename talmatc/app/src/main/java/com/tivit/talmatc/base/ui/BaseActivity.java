@@ -21,6 +21,7 @@ import com.tivit.talmatc.utils.ViewUtils;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import timber.log.Timber;
 
 /**
  * Created by Alexzander Guillermo on 25/08/2017.
@@ -60,14 +61,23 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
 
     @Override
     public void showLoading(String message) {
-//        hideLoading();
+        Timber.d("showLoading: "+message+"-"+mActivity);
+        //hideLoading();
+        if (mProgressDialog != null && mProgressDialog.isShowing())
+            hideLoading();
         mProgressDialog = ViewUtils.showProgressDialog(this, message);
     }
 
     @Override
     public void hideLoading() {
+        Timber.d("hideLoading: ");
+        /*
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.cancel();
+        }*/
+        if (mProgressDialog != null) {
+            mProgressDialog.dismiss();
+            mProgressDialog = null;
         }
     }
 

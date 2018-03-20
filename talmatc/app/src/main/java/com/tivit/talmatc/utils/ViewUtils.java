@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.tivit.talmatc.R;
 
+import timber.log.Timber;
+
 /**
  * Created by Alexzander Guillermo on 27/08/2017.
  */
@@ -24,10 +26,14 @@ import com.tivit.talmatc.R;
 public class ViewUtils {
 
     public static ProgressDialog showProgressDialog(Context context, @Nullable String message) {
+        //Timber.d("showProgressDialog: "+message);
+        //Timber.d("showProgressDialog-context: "+context);
         View view = ((Activity) context).getLayoutInflater().inflate(R.layout.dlg_progress, null);
-        ((TextView) view.findViewById(R.id.tv_message)).setText(message != null ? message : context.getResources().getString(R.string.progressdialog_cargando));
+        //Timber.d("showProgressDialog-view: "+view);
+        ((TextView) view.findViewById(R.id.txtMensaje)).setText(message != null ? message : context.getResources().getString(R.string.progressdialog_cargando));
 
         ProgressDialog progressDialog = new ProgressDialog(context);
+        //Timber.d("showProgressDialog-progressDialog: "+progressDialog);
         progressDialog.show();
         if (progressDialog.getWindow() != null) {
             progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

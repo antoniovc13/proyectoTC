@@ -3,6 +3,7 @@ package com.tivit.talmatc.feature.main;
 import com.tivit.talmatc.base.ui.BaseInteractor;
 import com.tivit.talmatc.data.local.constant.OrderEnum;
 import com.tivit.talmatc.data.local.model.Order;
+import com.tivit.talmatc.data.local.model.UserParameter;
 
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +26,11 @@ public class MainInteractor extends BaseInteractor implements MainContract.MainI
     }
 
 
+    @Override
+    public void loadCredentials(MainContract.OnMainListener onMainListener) {
+
+        onMainListener.loadMenu(getAppDataManager().getAppPreferencesData().getAuthorization().getUser());
+    }
 
     @Override
     public void callPreferenceRemoveAuth(MainContract.OnMainListener onMainListener) {

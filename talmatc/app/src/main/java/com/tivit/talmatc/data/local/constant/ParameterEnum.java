@@ -6,8 +6,9 @@ package com.tivit.talmatc.data.local.constant;
 
 public enum ParameterEnum {
 
-    SITUACION("SITUACION"),
-    ACCION("ACCION");
+    POINT_INIT("POINT_INIT"),
+    CAMION("CAMION"),
+    TRACTOR("TRACTOR");
 
     private final String value;
 

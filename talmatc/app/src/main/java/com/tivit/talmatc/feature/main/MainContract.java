@@ -4,6 +4,8 @@ import com.tivit.talmatc.base.mvp.MvpInteractor;
 import com.tivit.talmatc.base.mvp.MvpPresenter;
 import com.tivit.talmatc.base.mvp.MvpView;
 import com.tivit.talmatc.data.local.model.Order;
+import com.tivit.talmatc.data.local.model.User;
+import com.tivit.talmatc.data.local.model.UserParameter;
 
 import java.util.List;
 
@@ -17,6 +19,7 @@ public interface MainContract {
         void updateAppVersion();
         void closeNavigationDrawer();
         void openLoginActivity();
+        void loadMenu(User user);
     }
 
     interface MainPresenter<V extends MainView> extends MvpPresenter<V> {
@@ -27,11 +30,13 @@ public interface MainContract {
     interface MainInteractor extends MvpInteractor {
 
         void callPreferenceRemoveAuth(OnMainListener onMainListener);
+        void loadCredentials(OnMainListener onMainListener);
     }
 
     interface OnMainListener {
         void onListOrderSuccess(List<Order> orderList);
         void onLogoutSuccess();
+        void loadMenu(User user);
     }
 
 }

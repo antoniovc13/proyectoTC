@@ -58,8 +58,9 @@ public class LoginInteractor extends BaseInteractor implements LoginContract.Log
     public void callApiCatalogList(final LoginContract.OnLoginListener onLoginListener) {
         //String token = "Bearer " + getAppDataManager().getAppPreferencesData().getAuthorization().getAccessToken();
 
-
         onLoginListener.onCallCatalogSuccess();
+
+
 /*
         Observable<Boolean> catalogSituations = getAppDataManager().getAppRemoteData().getUserService().getCatalogSituations(token)
                 .flatMap(parameters -> {
@@ -77,68 +78,7 @@ public class LoginInteractor extends BaseInteractor implements LoginContract.Log
                     return getAppDataManager().getAppLocalData().getUserServiceLocal().saveCatalogParameter(parameters);
                 });
 */
-
-
         String token = "Bearer " + getAppDataManager().getAppPreferencesData().getAuthorization().getAccessToken();
-
-        List<Parameter> parameters = new ArrayList<Parameter>();
-        Parameter param = new Parameter();
-        param.setEntidad(ParameterEnum.SITUACION.getValue());
-        param.setCode("1");
-        param.setDescription("SITUACION1");
-        parameters.add(param);
-        param.setCode("2");
-        param.setDescription("SITUACION2");
-        parameters.add(param);
-        getAppDataManager().getAppLocalData().getUserServiceLocal().saveCatalogParameter(parameters);
-        Observable<Boolean> catalogSituations = Observable.just(true);
-
-
-        parameters = new ArrayList<Parameter>();
-        param = new Parameter();
-        param.setEntidad(ParameterEnum.ACCION.getValue());
-        param.setCode("1");
-        param.setDescription("ACCION1");
-        parameters.add(param);
-        param.setCode("2");
-        param.setDescription("ACCION2");
-        parameters.add(param);
-        getAppDataManager().getAppLocalData().getUserServiceLocal().saveCatalogParameter(parameters);
-        Observable<Boolean> catalogActions = Observable.just(true);
-
-
-        compositeDisposable.add(getAppDataManager().getAppLocalData().getUserServiceLocal().isSituationsEmpty()
-                .concatMap(isEmpty -> {
-                    if (!isEmpty) {
-                        return Observable.just(false);
-                    }
-                    return catalogSituations;
-                })
-                .concatMap(isEmpty -> getAppDataManager().getAppLocalData().getUserServiceLocal().isActionsEmpty()
-                        .concatMap(isEmpty2 -> {
-                            if (!isEmpty2) {
-                                return Observable.just(false);
-                            }
-                            return catalogActions;
-                        }))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableObserver<Boolean>() {
-                    @Override
-                    public void onNext(@NonNull Boolean aBoolean) {
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Timber.e(e);
-                        onLoginListener.onLoginError(e.getMessage());
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        onLoginListener.onCallCatalogSuccess();
-                    }
-                }));
 
     }
 

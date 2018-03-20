@@ -7,10 +7,14 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -52,6 +56,9 @@ public class FlightListActivity extends BaseActivity
     @BindView(R.id.swpRefresh)
     SwipeRefreshLayout swipeRefreshLayout;
     */
+
+    //FlightListSwipeController swipeController;
+    ItemTouchHelper.Callback callback;
 
     //ADAPTERS
     private FlightListAdapter mFlightListAdapter;
@@ -111,6 +118,17 @@ public class FlightListActivity extends BaseActivity
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mFlightListAdapter);
+
+
+        //se agrega el control de desplazamiento a la lista
+        /*
+        swipeController = new FlightListSwipeController();
+        ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeController);
+        itemTouchhelper.attachToRecyclerView(mRecyclerView);
+*/
+        callback = new SimpleItemTouchHelperCallback(mFlightListAdapter);
+        ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
+        touchHelper.attachToRecyclerView(mRecyclerView);
 /*
         swipeRefreshLayout = findViewById(R.id.swpRefresh);
         swipeRefreshLayout.setColorSchemeResources(R.color.google_blue, R.color.google_green, R.color.google_red, R.color.google_yellow);
@@ -284,6 +302,37 @@ public class FlightListActivity extends BaseActivity
        // swipeRefreshLayout.setRefreshing(true);
     }
     */
+/*
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo)
+    {
+        super.onCreateContextMenu(menu, v, menuInfo);
 
+        MenuInflater inflater = getMenuInflater();
 
+        if(v.getId() == R.id.rv_list_flight)
+        {
+            AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
+
+            menu.setHeaderTitle(
+                    ((Flight)mFlightListAdapter.getItem(info.position)).getCode()
+            );
+
+            inflater.inflate(R.menu.menu_contextual, menu);
+        }
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.menuEliminar:
+                Util.showMessage(this, "eliminando seleccion", Snackbar.LENGTH_LONG, Util.SNACK);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+    */
 }

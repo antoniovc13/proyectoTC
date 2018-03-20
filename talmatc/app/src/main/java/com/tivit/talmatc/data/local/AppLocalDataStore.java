@@ -6,6 +6,8 @@ import android.content.Context;
 //import com.tivit.talmatc.data.local.service.OrderServiceLocalImpl;
 import com.tivit.talmatc.data.local.service.FlightServiceLocal;
 import com.tivit.talmatc.data.local.service.FlightServiceLocalImpl;
+import com.tivit.talmatc.data.local.service.ParameterServiceLocal;
+import com.tivit.talmatc.data.local.service.ParameterServiceLocalImpl;
 import com.tivit.talmatc.data.local.service.UserServiceLocal;
 import com.tivit.talmatc.data.local.service.UserServiceLocalImpl;
 
@@ -17,23 +19,20 @@ public class AppLocalDataStore implements AppLocalData {
 
     private DbOpenHelper dbOpenHelper;
 
-    //private OrderServiceLocal orderServiceLocal;
+    private ParameterServiceLocal parameterServiceLocal;
     private UserServiceLocal userServiceLocal;
     private FlightServiceLocal flightServiceLocal;
 
     public AppLocalDataStore(Context context) {
         dbOpenHelper = DbOpenHelper.getInstance(context);
-        //this.orderServiceLocal = new OrderServiceLocalImpl(dbOpenHelper);
+        this.parameterServiceLocal = new ParameterServiceLocalImpl(dbOpenHelper);
         this.userServiceLocal = new UserServiceLocalImpl(dbOpenHelper);
         this.flightServiceLocal = new FlightServiceLocalImpl(dbOpenHelper);
     }
 
-    /*
+
     @Override
-    public OrderServiceLocal getOrderServiceLocal() {
-        return orderServiceLocal;
-    }
-    */
+    public ParameterServiceLocal getParameterServiceLocal() { return parameterServiceLocal; }
 
     @Override
     public UserServiceLocal getUserServiceLocal() {

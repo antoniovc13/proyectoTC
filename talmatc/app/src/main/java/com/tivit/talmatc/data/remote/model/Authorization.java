@@ -1,5 +1,7 @@
 package com.tivit.talmatc.data.remote.model;
 
+import com.tivit.talmatc.data.local.model.User;
+
 import java.util.List;
 
 /**
@@ -12,6 +14,7 @@ public class Authorization {
     private String accessToken;
     private String refreshToken;
     private String username;
+    private User user;
 
     public List<String> getAuthorities() {
         return authorities;
@@ -45,4 +48,12 @@ public class Authorization {
         this.username = username;
     }
 
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

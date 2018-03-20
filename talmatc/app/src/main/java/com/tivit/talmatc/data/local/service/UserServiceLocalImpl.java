@@ -3,8 +3,11 @@ package com.tivit.talmatc.data.local.service;
 import com.tivit.talmatc.data.local.DbOpenHelper;
 import com.tivit.talmatc.data.local.constant.ParameterEnum;
 import com.tivit.talmatc.data.local.model.Parameter;
+import com.tivit.talmatc.data.local.model.User;
 import com.tivit.talmatc.data.local.repository.ParameterRepository;
 import com.tivit.talmatc.data.local.repository.ParameterRepositoryImpl;
+import com.tivit.talmatc.data.local.repository.UserRepository;
+import com.tivit.talmatc.data.local.repository.UserRepositoryImpl;
 import com.tivit.talmatc.data.remote.model.Authorization;
 import com.tivit.talmatc.data.remote.model.Login;
 
@@ -20,12 +23,14 @@ public class UserServiceLocalImpl implements UserServiceLocal {
 
     private DbOpenHelper dbOpenHelper;
     private ParameterRepository parameterRepository;
+    private UserRepository userRepository;
 
     public UserServiceLocalImpl(DbOpenHelper dbOpenHelper) {
         this.dbOpenHelper = dbOpenHelper;
         parameterRepository = new ParameterRepositoryImpl(dbOpenHelper);
+        userRepository = new UserRepositoryImpl(dbOpenHelper);
     }
-
+/*
     @Override
     public Observable<List<Parameter>> findAllSituations() {
         return Observable.fromCallable(() -> parameterRepository.findAllByEntity(ParameterEnum.SITUACION.getValue()));
@@ -45,7 +50,7 @@ public class UserServiceLocalImpl implements UserServiceLocal {
     public Observable<Boolean> isActionsEmpty() {
         return Observable.fromCallable(() -> !(parameterRepository.countByEntidad(new String[]{ParameterEnum.ACCION.getValue()}) > 0));
     }
-
+*/
     @Override
     public Observable<Boolean> saveCatalogParameter(List<Parameter> list) {
         return Observable.fromCallable(() -> {
@@ -58,8 +63,24 @@ public class UserServiceLocalImpl implements UserServiceLocal {
     @Override
     public Observable<Authorization> getAuthorizationLogin(Login login) {
         return Observable.fromCallable(() ->
-            parameterRepository.getAuthorizationLogin(login)
+            userRepository.getAuthorizationLogin(login)
         );
     }
 
+    @Override
+    public Observable<List<Parameter>> findAllTractors() {
+        return Observable.fromCallable(() -> parameterRepository.findAllByEntity(ParameterEnum.TRACTOR.getValue()));
+    }
+
+    @Override
+    public Observable<List<Parameter>> findAllVehicles(String typeVehicle) {
+        return Observable.fromCallable(() -> parameterRepository.findAllByEntity(typeVehicle));
+    }
+
+
+    public Observable<User> findUserByUsernameAndPassword(Login login) {
+        return Observable.fromCallable(() ->
+                userRepository.findUserByUsernameAndPassword(login.getUsername(), login.getUsername())
+        );
+    }
 }

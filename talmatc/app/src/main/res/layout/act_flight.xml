@@ -7,8 +7,8 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:gravity="center_horizontal"
-    android:background="@color/colorPrimaryDark"
-    tools:context=".feature.flight.selected.FlightActivity">
+    android:background="@color/colorPrimary"
+    tools:context=".feature.traslado_carga.flight.FlightActivity">
 
     <include android:id="@+id/toolbar"
         layout="@layout/toolbar"
@@ -24,6 +24,33 @@
         android:gravity="center_vertical"
         android:orientation="vertical">
 
+        <LinearLayout
+            style="@style/Widget.Group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
+
+            <TextView
+
+                style="@style/data_label"
+                android:text="Punto de Inicio" />
+
+            <Spinner
+                android:id="@+id/id_spi_pointini"
+                style="@style/data_value_match"
+                android:layout_height="25dp"
+                android:spinnerMode="dialog" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal">
+
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/ly_flight_departure"
             android:layout_width="wrap_content"
@@ -61,7 +88,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"
             android:orientation="horizontal">
 
         </LinearLayout>

@@ -4,12 +4,12 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-    <!--
      <uses-permission android:name="android.permission.CAMERA" />
      <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     -->
@@ -32,7 +32,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".feature.flight.selected.FlightActivity" />
-        <activity android:name=".feature.flight.list.FlightListActivity" />
+        <activity
+            android:name=".feature.main.MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity android:name=".feature.traslado_carga.flight.FlightActivity" />
+        <activity android:name=".feature.traslado_carga.flight_list.FlightListActivity" />
     </application>
 </manifest>

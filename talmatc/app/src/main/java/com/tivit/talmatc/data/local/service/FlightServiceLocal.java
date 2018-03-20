@@ -15,5 +15,6 @@ import io.reactivex.Observable;
 
 public interface FlightServiceLocal {
     Observable<List<Flight>> findAllFlights();
+    Observable<List<Flight>> findAllFlightAssociate();
     Observable<Flight> findFlightByCode(final String code);
 }

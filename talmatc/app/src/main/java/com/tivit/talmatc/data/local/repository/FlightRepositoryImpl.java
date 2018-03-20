@@ -80,6 +80,28 @@ public class FlightRepositoryImpl extends GenericRepositoryImpl<Flight> implemen
         Timber.d(selectQuery);
         //List<Flight> list = findAllBy(selectQuery);
         //return list==null?new ArrayList<>():list;
+        List<Flight> l;
+        Timber.d(selectQuery);
+        try{
+            l = findAllBy(selectQuery);
+        }catch(Exception e){
+
+            e.printStackTrace();
+            l = new ArrayList<>();
+        }
+        //return findAllBy(selectQuery);
+        return l;
+    }
+
+    @Override
+    public List<Flight> findAll() {
+        String query =  "SELECT * FROM %s ";
+
+        String selectQuery = String.format(query,
+                DbContract.TB_FLIGHT.TABLE_NAME);
+        Timber.d(selectQuery);
+        //List<Flight> list = findAllBy(selectQuery);
+        //return list==null?new ArrayList<>():list;
         return findAllBy(selectQuery);
     }
 
@@ -92,7 +114,6 @@ public class FlightRepositoryImpl extends GenericRepositoryImpl<Flight> implemen
                 DbContract.TB_FLIGHT.TABLE_NAME,
                 DbContract.TB_FLIGHT.KEY_CODE, code);
 
-        Timber.d(selectQuery);
         return findBy(selectQuery);
     }
 

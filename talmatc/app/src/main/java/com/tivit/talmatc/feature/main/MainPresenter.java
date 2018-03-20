@@ -2,6 +2,8 @@ package com.tivit.talmatc.feature.main;
 
 import com.tivit.talmatc.base.ui.BasePresenter;
 import com.tivit.talmatc.data.local.model.Order;
+import com.tivit.talmatc.data.local.model.User;
+import com.tivit.talmatc.data.local.model.UserParameter;
 
 import java.util.List;
 
@@ -32,6 +34,7 @@ public class MainPresenter<V extends MainContract.MainView> extends BasePresente
             return;
         }
         mView.updateAppVersion();
+        mInteractor.loadCredentials(this);
     }
 
 
@@ -50,6 +53,11 @@ public class MainPresenter<V extends MainContract.MainView> extends BasePresente
     @Override
     public void onLogoutSuccess() {
         mView.openLoginActivity();
+    }
+
+    @Override
+    public void loadMenu(User user) {
+        mView.loadMenu(user);
     }
 
 }

@@ -14,11 +14,18 @@ public interface LoginContract {
     interface LoginView extends MvpView {
         void openMainActivity();
         void showLoginView();
+        void showLoadingActivity(String message);
+/*
+        void showLoading(String message);
+        void hideLoading();
+        */
     }
 
     interface LoginPresenter<V extends LoginView> extends MvpPresenter<V> {
         void startLogin(Login login);
         void onViewInitialized();
+
+        void showLoading(String message);
     }
 
     interface LoginInteractor extends MvpInteractor {
@@ -33,5 +40,6 @@ public interface LoginContract {
         void onCallCatalogSuccess();
         void isAuhenticatedSuccess();
         void isAuhenticatedFailure();
+
     }
 }

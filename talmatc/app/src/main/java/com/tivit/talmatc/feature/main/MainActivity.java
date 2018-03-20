@@ -30,6 +30,10 @@ import com.tivit.talmatc.BuildConfig;
 import com.tivit.talmatc.R;
 import com.tivit.talmatc.base.generic.RoundedImageView;
 import com.tivit.talmatc.base.ui.BaseActivity;
+import com.tivit.talmatc.data.local.constant.ParameterEnum;
+import com.tivit.talmatc.data.local.constant.RoleEnum;
+import com.tivit.talmatc.data.local.model.User;
+import com.tivit.talmatc.data.local.model.UserParameter;
 import com.tivit.talmatc.feature.login.LoginActivity;
 import com.tivit.talmatc.feature.traslado_carga.selected.ChargeMoveFragment;
 import com.tivit.talmatc.utils.CommonUtils;
@@ -110,6 +114,30 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
 
 
         mNavigationView.setNavigationItemSelectedListener(this);
+
+
+    }
+
+    @Override
+    public void loadMenu(User user) {
+
+        if(user.getRole().equals(RoleEnum.ROL1.getValue())){
+
+            if(user.getUnidad().equals(ParameterEnum.TRACTOR.getValue())){
+                mNavigationView.getMenu().findItem(R.id.menuTrasladoCarga1).setVisible(true);
+
+            }else if(user.getUnidad().equals(ParameterEnum.TRACTOR.getValue())){
+                mNavigationView.getMenu().findItem(R.id.menuTrasladoCarga2).setVisible(true);
+            }
+
+        }else if(user.getRole().equals(RoleEnum.ROL2.getValue())){
+            mNavigationView.getMenu().findItem(R.id.menuRezagados1).setVisible(true);
+
+        }else if(user.getRole().equals(RoleEnum.ROL3.getValue())){
+            mNavigationView.getMenu().findItem(R.id.menuRezagados2).setVisible(true);
+
+        }
+
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -119,8 +147,17 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
         int id = item.getItemId();
 
         switch (id){
-            case R.id.menuTrasladoCarga:
+            case R.id.menuTrasladoCarga1:
                 homeFragment(item);
+                break;
+            case R.id.menuTrasladoCarga2:
+                //homeFragment(item);
+                break;
+            case R.id.menuRezagados1:
+                //homeFragment(item);
+                break;
+            case R.id.menuRezagados2:
+                //homeFragment(item);
                 break;
             case R.id.nav_about:
                 aboutUs();
@@ -276,6 +313,8 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
         finish();
         overridePendingTransitionExit();
     }
+
+
 
 
     private void aboutUs() {

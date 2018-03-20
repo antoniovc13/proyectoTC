@@ -2,6 +2,7 @@ package com.tivit.talmatc.data.local;
 
 //import com.tivit.talmatc.data.local.service.OrderServiceLocal;
 import com.tivit.talmatc.data.local.service.FlightServiceLocal;
+import com.tivit.talmatc.data.local.service.ParameterServiceLocal;
 import com.tivit.talmatc.data.local.service.UserServiceLocal;
 
 /**
@@ -10,7 +11,7 @@ import com.tivit.talmatc.data.local.service.UserServiceLocal;
 
 public interface AppLocalData {
 
-    //OrderServiceLocal getOrderServiceLocal();
+    ParameterServiceLocal getParameterServiceLocal();
 
     UserServiceLocal getUserServiceLocal();
 

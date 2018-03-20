@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
+import com.tivit.talmatc.data.local.model.User;
+import com.tivit.talmatc.data.local.model.UserParameter;
 import com.tivit.talmatc.data.remote.model.Authorization;
 
 import io.reactivex.Observable;
@@ -18,6 +20,7 @@ public class AppPreferencesDataStore implements AppPreferencesData {
     private static final String PREF_KEY_CURRENT_USER = "PREF_KEY_CURRENT_USER";
     private static final String PREF_KEY_ACCESS_TOKEN = "PREF_KEY_ACCESS_TOKEN";
     private static final String PREF_KEY_CURRENT_VUELO = "PREF_KEY_CURRENT_VUELO";
+    private static final String PREF_KEY_CURRENT_USERPARAMETER = "PREF_KEY_CURRENT_USERPARAMETER";
 
     private final SharedPreferences mPrefs;
 
@@ -63,4 +66,19 @@ public class AppPreferencesDataStore implements AppPreferencesData {
     public void saveTypeFlight(String flight) {
         mPrefs.edit().putString(PREF_KEY_CURRENT_VUELO, new Gson().toJson(flight)).apply();
     }
+
+    @Override
+    public void saveUserParameter(UserParameter userParameter) {
+        mPrefs.edit().putString(PREF_KEY_CURRENT_USERPARAMETER, new Gson().toJson(userParameter)).apply();
+    }
+
+    @Override
+    public UserParameter getUserParameter() {
+        if (mPrefs.contains(PREF_KEY_CURRENT_USERPARAMETER)) {
+            return new Gson().fromJson(mPrefs.getString(PREF_KEY_CURRENT_USERPARAMETER, null), UserParameter.class);
+        } else {
+            return null;
+        }
+    }
+
 }
