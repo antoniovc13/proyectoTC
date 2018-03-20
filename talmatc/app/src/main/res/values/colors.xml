@@ -362,7 +362,4 @@
     <color name="md_blue_grey_800">#37474F</color>
     <color name="md_blue_grey_900">#263238</color>
 
-
-    <color name="warning">#FFF9C4</color>
-    <color name="error_border">#F44336</color>
 </resources>

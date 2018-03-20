@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;    
+import android.widget.Toast;
 
 import com.tivit.talmatc.R;
 import com.tivit.talmatc.feature.login.LoginActivity;
@@ -25,7 +25,6 @@ import java.util.Calendar;
 import retrofit2.Response;
 
 //import com.tivit.task.talma.ui.activity.TicketViewActivity;
-//comentado
 
 public class Util {
 
@@ -71,7 +70,7 @@ public class Util {
             }.start();
         }
     }
-
+/*
     public static ProgressDialog showProgressDialog(Context context, String mensaje) {
         View view = ((Activity) context).getLayoutInflater().inflate(R.layout.dlg_progress, null);
         ((TextView) view.findViewById(R.id.txtMensaje)).setText(mensaje != null ? mensaje : context.getResources().getString(R.string.progressdialog_cargando));
@@ -83,7 +82,7 @@ public class Util {
         progressDialog.setCancelable(false);
         return progressDialog;
     }
-
+*/
     public static ProgressDialog showProgressDialogSimple(Context context, String mensaje) {
         ProgressDialog progressDialog = new ProgressDialog(context);
         progressDialog.setMessage(mensaje);

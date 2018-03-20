@@ -43,8 +43,4 @@ public class Configuration {
     public static final String SOURCE_RESUME = "source_resume";
     public static final String SOURCE_BUTTOM = "source_buttom";
 
-    public static final String CODE_FLIGHT = "CODE_FLIGHT";
-    public static final String CODE_ARRIVE = "ARRIVE";
-    public static final String CODE_DEPARTURE = "DEPARTURE";
-
 }

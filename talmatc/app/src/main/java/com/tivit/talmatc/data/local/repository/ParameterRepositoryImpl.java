@@ -81,7 +81,7 @@ public class ParameterRepositoryImpl extends GenericRepositoryImpl<Parameter> im
         long count = DatabaseUtils.queryNumEntries(db, DbContract.TB_PARAMETER.TABLE_NAME, DbContract.TB_PARAMETER.KEY_ENTIDAD + "=?", whereArgs);
         return count;
     }
-/*
+
     //TODO AVC agregado
     @Override
     public Authorization getAuthorizationLogin(Login login) {
@@ -93,5 +93,4 @@ public class ParameterRepositoryImpl extends GenericRepositoryImpl<Parameter> im
 
         return authorization;
     }
-    */
 }

@@ -31,11 +31,6 @@ public class FlightServiceLocalImpl implements FlightServiceLocal {
 
     @Override
     public Observable<List<Flight>> findAllFlights() {
-        return Observable.fromCallable(() -> flightRepository.findAll());
-    }
-
-    @Override
-    public Observable<List<Flight>> findAllFlightAssociate() {
         return Observable.fromCallable(() -> flightRepository.findAllByFlagAssociate(1));
     }
 

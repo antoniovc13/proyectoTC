@@ -1,7 +1,5 @@
 package com.tivit.talmatc.data.prefs;
 
-import com.tivit.talmatc.data.local.model.User;
-import com.tivit.talmatc.data.local.model.UserParameter;
 import com.tivit.talmatc.data.remote.model.Authorization;
 
 import io.reactivex.Observable;
@@ -23,8 +21,4 @@ public interface AppPreferencesData {
     void deleteAuthorization();
 
     void saveTypeFlight(String flight);
-
-    void saveUserParameter(UserParameter userParameter);
-
-    UserParameter getUserParameter();
 }

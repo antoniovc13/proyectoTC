@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <item android:id="@+id/action_marker"
-        android:icon="@mipmap/ic_red_marker"
-        android:title="Marker"
-        app:showAsAction="always"
-        />
-
-    <item android:id="@+id/action_trasler"
-        android:icon="@mipmap/ic_stat_logo_png"
-        android:title="Traslado"
+<!--
+    <item android:id="@+id/action_dowload"
+        android:icon="@mipmap/ic_action_export"
+        android:title="Descargar"
         app:showAsAction="always" />
 
-    <!--
+    <item android:id="@+id/action_refresh"
+        android:icon="@mipmap/ic_action_refresh"
+        android:title="Refrescar"
+        app:showAsAction="always" />
+-->
     <item android:id="@+id/action_save"
         android:icon="@mipmap/ic_save"
         android:title="Save"
         app:showAsAction="always" />
-    -->
-
 </menu>

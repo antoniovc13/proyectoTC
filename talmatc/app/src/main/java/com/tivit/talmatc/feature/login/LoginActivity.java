@@ -1,6 +1,5 @@
 package com.tivit.talmatc.feature.login;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,16 +10,11 @@ import com.tivit.talmatc.R;
 import com.tivit.talmatc.base.ui.BaseActivity;
 import com.tivit.talmatc.data.remote.model.Login;
 //import com.tivit.talmatc.feature.main.MainActivity;
-import com.tivit.talmatc.feature.main.MainActivity;
-import com.tivit.talmatc.feature.traslado_carga.flight.FlightActivity;
+import com.tivit.talmatc.feature.flight.selected.FlightActivity;
 import com.tivit.talmatc.utils.KeyboardUtils;
-import com.tivit.talmatc.utils.Util;
-import com.tivit.talmatc.utils.ViewUtils;
 
 import butterknife.BindView;
 import timber.log.Timber;
-
-import static com.tivit.talmatc.utils.ViewUtils.showProgressDialog;
 
 /**
  * Created by Alexzander Guillermo on 29/08/2017.
@@ -31,12 +25,12 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
     private LoginContract.LoginPresenter mPresenter;
 
     // VIEWS
-    @BindView(R.id.et_username)         EditText etUsername;
-    @BindView(R.id.et_password)         EditText etPassword;
-    @BindView(R.id.btn_auth_login)      Button btnAuthLogin;
-
-    //
-    //private ProgressDialog progressDialog;
+    @BindView(R.id.btn_auth_login)
+    Button btnAuthLogin;
+    @BindView(R.id.et_username)
+    EditText etUsername;
+    @BindView(R.id.et_password)
+    EditText etPassword;
 
     /* ======= START ACTIVITY ======= */
 
@@ -105,19 +99,18 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
         } else {
             KeyboardUtils.hideSoftInput(this);
 
-            showLoadingActivity("Validando Credenciales");
-            Util.closeKeyboard(etPassword, this);
             Login login = new Login(username, password);
-
             mPresenter.startLogin(login);
         }
     }
 
     @Override
     public void openMainActivity() {
-        //hideLoading();
+
         Bundle bundle = new Bundle();
-        next(bundle, MainActivity.class, true);
+        next(bundle, FlightActivity.class, true);
+
+        Timber.d("open MainActivity");
     }
 
     @Override
@@ -126,24 +119,4 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
         etPassword.setText("admin");
     }
 
-    public void showLoadingActivity(String msj){
-        showLoading(msj);
-    }
-
-/*
-    @Override
-    public void showLoading(String message) {
-        Timber.d("showLoading: "+message+"-"+mActivity);
-//        hideLoading();
-        mProgressDialog = ViewUtils.showProgressDialog(mActivity, message);
-    }
-
-    @Override
-    public void hideLoading() {
-        Timber.d("hideLoading: ");
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.cancel();
-        }
-    }
-    */
 }

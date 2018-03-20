@@ -43,106 +43,29 @@ public class DbOpenHelper extends SQLiteOpenHelper {
         db.execSQL(DbContract.TB_PERSON.CREATE);
         //db.execSQL(DbContract.TB_ORDER.CREATE);
         db.execSQL(DbContract.TB_FLIGHT.CREATE);
-        db.execSQL(DbContract.TB_USER.CREATE);
-        //db.execSQL(DbContract.TB_ROLE.CREATE);
-        //db.execSQL(DbContract.TB_USER_ROLE.CREATE);
-        insertParemeters(db);
+        //insertParemeters(db);
+        //insertOrders(db);
         insertFlights(db);
-
-        insertUsers(db);
-        //insertRoles(db);
-        //insertUserRoles(db);
     }
 
-    private void insertUsers(SQLiteDatabase db) {
-
-        String cab = "insert into user(username, password, fullname, role, unit) ";
-        String sql = "";
-
-        sql = cab + " values('usuario1','admin','JUAN PEREZ VACA','ROL1','TRACTOR')";
-        db.execSQL(sql);
-        sql = cab + " values('usuario2','admin','JOSE RODRIGUEZ SOLORZANO','ROL1','CAMION')";
-        db.execSQL(sql);
-        sql = cab + " values('usuario3','admin','ALAN HUAMANI SALAZ','ROL2','TRACTOR')";
-        db.execSQL(sql);
-        sql = cab + " values('usuario4','admin','LUIS LEIVA PEREZ','ROL3','TRACTOR')";
-        db.execSQL(sql);
-        sql = cab + " values('admin','admin','ADMINISTRADOR DEL SISTEMA','ROL1','TRACTOR')";
-        db.execSQL(sql);
-    }
-
-    private void insertRoles(SQLiteDatabase db) {
-        String cab = "insert into role(code, description) ";
-        String sql = "";
-
-        sql = cab + " values('ROL1','ROL1')";
-        db.execSQL(sql);
-        sql = cab + " values('ROL2','ROL2')";
-        db.execSQL(sql);
-        sql = cab + " values('ROL3','ROL3')";
-        db.execSQL(sql);
-        sql = cab + " values('ROL4','ROL4')";
-        db.execSQL(sql);
-    }
-
-    private void insertUserRoles(SQLiteDatabase db) {
-        String cab = "insert into user_role(id_user, id_role) ";
-        String sql = "";
-
-        sql = cab + " values(1,1)";
-        db.execSQL(sql);
-        sql = cab + " values(2,2)";
-        db.execSQL(sql);
-        sql = cab + " values(3,3)";
-        db.execSQL(sql);
-        sql = cab + " values(4,4)";
-        db.execSQL(sql);
-        sql = cab + " values(5,1)";
-        db.execSQL(sql);
-    }
 
     private void insertParemeters(SQLiteDatabase db) {
         String cab = "insert into parameters(parameterscode, parametersdescription, parametersentidad) ";
-        String sql = "";
-        sql = cab + " values('10','10','TRACTOR')";
+        String sql = cab + " values('CS','CON SUMINISTRO','SITUACION')";
         db.execSQL(sql);
-        sql = cab + " values('11','11','TRACTOR')";
+        sql = cab + " values('RF','RECIBO PAGADO','SITUACION')";
         db.execSQL(sql);
-        sql = cab + " values('12','12','TRACTOR')";
+        sql = cab + " values('SE','SUMINISTRO ENREJADO','SITUACION')";
         db.execSQL(sql);
-        sql = cab + " values('13','13','TRACTOR')";
-        db.execSQL(sql);
-        sql = cab + " values('14','14','TRACTOR')";
-        db.execSQL(sql);
-        sql = cab + " values('15','15','TRACTOR')";
-        db.execSQL(sql);
-        sql = cab + " values('16','16','TRACTOR')";
+        sql = cab + " values('SI','SUMINISTRO INTERIOR','SITUACION')";
         db.execSQL(sql);
 
-
-        sql = cab + " values('ABC-123','ABC-123','CAMION')";
+        sql = cab + " values('BT','BAJO TERMICO','ACCION')";
         db.execSQL(sql);
-        sql = cab + " values('ABC-234','ABC-234','CAMION')";
+        sql = cab + " values('NR','NO REALIZADO','ACCION')";
         db.execSQL(sql);
-        sql = cab + " values('ABC-345','ABC-345','CAMION')";
+        sql = cab + " values('RE','REALIZADO','ACCION')";
         db.execSQL(sql);
-        sql = cab + " values('ABC-456','ABC-456','CAMION')";
-        db.execSQL(sql);
-        sql = cab + " values('ABC-567','ABC-567','CAMION')";
-        db.execSQL(sql);
-        sql = cab + " values('ABC-678','ABC-678','CAMION')";
-        db.execSQL(sql);
-        sql = cab + " values('ABC-789','ABC-789','CAMION')";
-        db.execSQL(sql);
-
-
-        sql = cab + " values('PEA','PEA','POINT_INIT')";
-        db.execSQL(sql);
-        sql = cab + " values('ALMACEN','ALMACEN','POINT_INIT')";
-        db.execSQL(sql);
-        sql = cab + " values('ZT','ZONA DE TRANSFERENCIA','POINT_INIT')";
-        db.execSQL(sql);
-
     }
 
     private void insertOrders(SQLiteDatabase db) {
