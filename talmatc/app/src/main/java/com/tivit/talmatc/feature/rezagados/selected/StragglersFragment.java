@@ -36,7 +36,7 @@ public class StragglersFragment extends BaseFragment implements StragglersContra
     @BindView(R.id.tv_msj)                  TextView tvMensaje;
 
     //ADAPTERS
-    //private FlightListAdapter mFlightListAdapter;
+    //private FlightListAdapter2 mFlightListAdapter;
     private LinearLayoutManager mLayoutManager;
     ArrayAdapter<String> adaptador;
     //@BindView(R.id.progress_loading) ProgressRelativeLayout progressRelative;

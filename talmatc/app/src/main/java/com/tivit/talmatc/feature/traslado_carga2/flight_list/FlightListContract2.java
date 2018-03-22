@@ -1,4 +1,4 @@
-package com.tivit.talmatc.feature.flight.list;
+package com.tivit.talmatc.feature.traslado_carga2.flight_list;
 
 import com.tivit.talmatc.base.mvp.MvpInteractor;
 import com.tivit.talmatc.base.mvp.MvpPresenter;
@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Alexzander Guillermo on 29/08/2017.
  */
 
-public interface FlightListContract {
+public interface FlightListContract2 {
 
     interface FlightListView extends MvpView {
         void showProgressContent();
@@ -20,6 +20,7 @@ public interface FlightListContract {
         void showProgressError(String message);
 
         void updateFlightList(List<Flight> flightList);
+        void updateListAutocomplete(List<Flight> flightList);
         void addFlightToList(int position, Flight flight);
 
     }
@@ -30,8 +31,9 @@ public interface FlightListContract {
     }
 
     interface FlightListInteractor extends MvpInteractor {
-        void callApiListFlightIni(FlightListContract.OnFlightListListener onFlightListListener);
-        void callLocalFindFlightByCode(FlightListContract.OnFlightListListener onFlightListListener, String code);
+        void callApiListFlightIni(FlightListContract2.OnFlightListListener onFlightListListener);
+        void callLocalListFlight(FlightListContract2.OnFlightListListener onFlightListListener);
+        void callLocalFindFlightByCode(FlightListContract2.OnFlightListListener onFlightListListener, String code);
     }
 
     interface OnFlightListListener {
@@ -39,6 +41,7 @@ public interface FlightListContract {
         void showProgressError(String message);
 
         void updateFlightList(List<Flight> flightList);
+        void updateListAutocomplete(List<Flight> flightList);
         void addFlightToList(int position, Flight flight);
 
     }

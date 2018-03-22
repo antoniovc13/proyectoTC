@@ -1,4 +1,4 @@
-package com.tivit.talmatc.feature.flight.list;
+package com.tivit.talmatc.feature.traslado_carga2.flight_list;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -19,13 +19,13 @@ import java.util.List;
  * Created by Antonio.Valdivieso on 08/03/2018.
  */
 
-public class AutoCompleteFlightAdapter extends ArrayAdapter<Flight> {
+public class AutoCompleteFlightAdapter2 extends ArrayAdapter<Flight> {
 
 
     private final List<Flight> flights;
     public List<Flight> filteredFlight = new ArrayList<>();
 
-    public AutoCompleteFlightAdapter(Context context, List<Flight> list) {
+    public AutoCompleteFlightAdapter2(Context context, List<Flight> list) {
         super(context, 0, list);
         this.flights = list;
     }
@@ -37,7 +37,7 @@ public class AutoCompleteFlightAdapter extends ArrayAdapter<Flight> {
 
     @Override
     public Filter getFilter() {
-        return new FlightFilter(this, flights);
+        return new FlightFilter2(this, flights);
     }
 
 

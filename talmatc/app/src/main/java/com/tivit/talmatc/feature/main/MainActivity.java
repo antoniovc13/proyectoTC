@@ -36,6 +36,7 @@ import com.tivit.talmatc.data.local.model.User;
 import com.tivit.talmatc.data.local.model.UserParameter;
 import com.tivit.talmatc.feature.login.LoginActivity;
 import com.tivit.talmatc.feature.traslado_carga.selected.ChargeMoveFragment;
+import com.tivit.talmatc.feature.traslado_carga2.selected.ChargeMoveFragment2;
 import com.tivit.talmatc.utils.CommonUtils;
 
 import butterknife.BindView;
@@ -123,12 +124,12 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
 
         if(user.getRole().equals(RoleEnum.ROL1.getValue())){
 
-            if(user.getUnidad().equals(ParameterEnum.TRACTOR.getValue())){
+            //if(user.getUnidad().equals(ParameterEnum.TRACTOR.getValue())){
                 mNavigationView.getMenu().findItem(R.id.menuTrasladoCarga1).setVisible(true);
 
-            }else if(user.getUnidad().equals(ParameterEnum.TRACTOR.getValue())){
+//            }else if(user.getUnidad().equals(ParameterEnum.TRACTOR.getValue())){
                 mNavigationView.getMenu().findItem(R.id.menuTrasladoCarga2).setVisible(true);
-            }
+  //          }
 
         }else if(user.getRole().equals(RoleEnum.ROL2.getValue())){
             mNavigationView.getMenu().findItem(R.id.menuRezagados1).setVisible(true);
@@ -151,7 +152,7 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
                 homeFragment(item);
                 break;
             case R.id.menuTrasladoCarga2:
-                //homeFragment(item);
+                homeFragment2(item);
                 break;
             case R.id.menuRezagados1:
                 //homeFragment(item);
@@ -183,6 +184,23 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
         try {
             Bundle args =  new Bundle();
             Class fragmentClass = ChargeMoveFragment.class;
+            args.putString("MESSAGE", "Welcome");
+            Fragment fragment = (Fragment) fragmentClass.newInstance();
+            fragment.setArguments(args);
+            changeFragment(fragment, item);
+
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void homeFragment2(MenuItem item) {
+
+        try {
+            Bundle args =  new Bundle();
+            Class fragmentClass = ChargeMoveFragment2.class;
             args.putString("MESSAGE", "Welcome");
             Fragment fragment = (Fragment) fragmentClass.newInstance();
             fragment.setArguments(args);

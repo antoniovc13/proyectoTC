@@ -1,4 +1,4 @@
-package com.tivit.talmatc.feature.flight.list;
+package com.tivit.talmatc.feature.traslado_carga2.flight_list;
 
 import android.widget.Filter;
 
@@ -11,13 +11,13 @@ import java.util.List;
  * Created by Antonio.Valdivieso on 08/03/2018.
  */
 
-public class FlightFilter extends Filter {
+public class FlightFilter2 extends Filter {
 
-    AutoCompleteFlightAdapter adapter;
+    AutoCompleteFlightAdapter2 adapter;
     List<Flight> originalList;
     List<Flight> filteredList;
 
-    public FlightFilter(AutoCompleteFlightAdapter adapter, List<Flight> originalList) {
+    public FlightFilter2(AutoCompleteFlightAdapter2 adapter, List<Flight> originalList) {
         super();
         this.adapter = adapter;
         this.originalList = originalList;

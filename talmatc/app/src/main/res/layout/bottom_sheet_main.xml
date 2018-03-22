@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/bottomSheetLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="64dp" >
+
+        <TextView
+            android:id="@+id/bottomSheetHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:padding="16dp"
+            android:text="BOTTOM SHEET" />
+
+        <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+        <RelativeLayout
+            style="@style/Widget.Group.Top">
+
+                <TextView
+                    style="@style/data_title"
+                    android:text="AGREGAR VUELO"
+
+                    />
+
+        </RelativeLayout>
+
+        <View style="@style/separator" />
+
+        <LinearLayout
+            style="@style/Widget.Group"
+            android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                        <TextView
+                            style="@style/data_label"
+                            android:text="Vuelo" />
+
+                        <AutoCompleteTextView
+                            android:id="@+id/id_cam_actv_vuelo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:completionThreshold="1"
+                            android:hint="Búsqueda de Vuelo"
+                            android:maxLines="1"
+                            android:paddingBottom="8dp"
+                            android:paddingLeft="10dp"
+
+                            android:paddingTop="8dp"
+                            android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <View style="@style/separator_vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/id_cam_btn_agregarvuelo"
+                            style="@style/Button.Primary"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:text="Agregar" />
+
+                </LinearLayout>
+
+        </LinearLayout>
+
+</LinearLayout>
+
+</LinearLayout>
