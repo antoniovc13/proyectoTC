@@ -101,7 +101,7 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
         setupNavMenu();
         mPresenter.onNavMenuCreated();
         //mPresenter.onViewInitialized();
-        homeFragment(mNavigationView.getMenu().getItem(0));
+        homeFragment2(mNavigationView.getMenu().getItem(0));
     }
 
 

@@ -1,9 +1,13 @@
 package com.tivit.talmatc.feature.traslado_carga2.flight_list;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +16,8 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -47,17 +53,20 @@ public class FlightListActivity2 extends BaseActivity
 
     // VIEWS
     @BindView(R.id.id_cam_actv_vuelo)              AutoCompleteTextView    actvVuelo;
-    @BindView(R.id.id_cam_btn_agregarvuelo)     Button                  btnAgregarVuelo;
+    @BindView(R.id.id_cam_btn_agregarvuelo)         Button                  btnAgregarVuelo;
     @BindView(R.id.id_cam_tv_msj)                  TextView                tvMensaje;
     @BindView(R.id.id_cam_rv_list_flight)          RecyclerView            mRecyclerView;
 
-    @BindView(R.id.bottomSheetLayout)          LinearLayout            bottomSheet;
+    //@BindView(R.id.bottomSheetLayout)          LinearLayout            bottomSheet;
+
+
 
 
     //@BindView(R.id.swpRefresh)            SwipeRefreshLayout swipeRefreshLayout;
 
     //sheet
 
+    boolean showFAB = true;
     // BottomSheetBehavior variable
     private BottomSheetBehavior bottomSheetBehavior;
 
@@ -146,12 +155,14 @@ public class FlightListActivity2 extends BaseActivity
 
         //sheet
         //bottomSheet = (LinearLayout)findViewById(R.id.bottomSheet);
+        /*
         bottomSheetBehavior = BottomSheetBehavior.from(findViewById(R.id.bottomSheetLayout));
         bottomSheetHeading = (TextView) findViewById(R.id.bottomSheetHeading);
         expandBottomSheetButton = (Button) findViewById(R.id.expand_bottom_sheet_button);
         collapseBottomSheetButton = (Button) findViewById(R.id.collapse_bottom_sheet_button);
         hideBottomSheetButton = (Button) findViewById(R.id.hide_bottom_sheet_button);
         showBottomSheetDialogButton = (Button) findViewById(R.id.show_bottom_sheet_dialog_button);
+        */
         /*
         final BottomSheetBehavior bsb = BottomSheetBehavior.from(bottomSheet);
 
@@ -205,11 +216,115 @@ public class FlightListActivity2 extends BaseActivity
             }
         });
         */
+        initButtonSheet();
         initListeners();
         mPresenter.onViewInitialized();
     }
 
+    private void initButtonSheet() {
+
+        // To handle FAB animation upon entrance and exit
+        final Animation growAnimation = AnimationUtils.loadAnimation(this, R.anim.simple_grow);
+        final Animation shrinkAnimation = AnimationUtils.loadAnimation(this, R.anim.simple_shrink);
+
+
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.gmail_fab);
+
+        fab.setVisibility(View.VISIBLE);
+        fab.startAnimation(growAnimation);
+
+
+        shrinkAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                fab.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+
+        CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.gmail_coordinator);
+        View bottomSheet = coordinatorLayout.findViewById(R.id.gmail_bottom_sheet);
+
+        BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
+
+        behavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+
+                switch (newState) {
+
+                    case BottomSheetBehavior.STATE_DRAGGING:
+                        Timber.d("BottomSheets STATE_DRAGGING");
+                        if (showFAB)
+                            fab.startAnimation(shrinkAnimation);
+                        break;
+
+                    case BottomSheetBehavior.STATE_COLLAPSED:
+                        Timber.d("BottomSheets STATE_COLLAPSED");
+                        showFAB = true;
+                        fab.setVisibility(View.VISIBLE);
+                        fab.startAnimation(growAnimation);
+                        break;
+
+                    case BottomSheetBehavior.STATE_EXPANDED:
+                        Timber.d("BottomSheets STATE_EXPANDED");
+                        showFAB = false;
+                        break;
+                    case BottomSheetBehavior.STATE_SETTLING:
+                        Timber.d("BottomSheets STATE_SETTLING");
+                        //showFAB = false;
+                        break;
+                    case BottomSheetBehavior.STATE_HIDDEN:
+                        Timber.d("BottomSheets STATE_HIDDEN");
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(FlightListActivity2.this)
+                                .setTitle("¿Estas seguro que deseas iniciar viaje?")
+                                .setMessage("Con esto ya no podras realizar adición/eliminación de vuelos.")
+                                .setCancelable(false)
+                                .setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                                        showFAB = false;
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                                        dialog.dismiss();
+                                    }
+                                });
+
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                        //behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                        break;
+                }
+
+            }
+
+            @Override
+            public void onSlide(View bottomSheet, float slideOffset) {
+                Timber.d("BottomSheets "+ "Offset: " + slideOffset);
+            }
+        });
+
+    }
+
     private void initListeners() {
+        /*
         // register the listener for button click
         expandBottomSheetButton.setOnClickListener(this);
         collapseBottomSheetButton.setOnClickListener(this);
@@ -254,7 +369,7 @@ public class FlightListActivity2 extends BaseActivity
             }
         });
 
-
+*/
     }
 
     @Override
@@ -270,6 +385,7 @@ public class FlightListActivity2 extends BaseActivity
             case android.R.id.home:
                 onBackPressed();
                 return true;
+                /*
             case R.id.collapse_bottom_sheet_button:
                 // Collapsing the bottom sheet
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
@@ -282,9 +398,11 @@ public class FlightListActivity2 extends BaseActivity
                 // Hiding the bottom sheet
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
                 return true;
+
             case R.id.show_bottom_sheet_dialog_button:
 
                 return true;
+                */
                 /*
             case R.id.action_dowload:
                 Archivo file = new Archivo();
@@ -311,7 +429,7 @@ public class FlightListActivity2 extends BaseActivity
 
         switch (id) {
             //case R.id.ib_findvuelo :
-            case R.id.id_btn_agregarvuelo :
+            case R.id.id_cam_btn_agregarvuelo :
 
                 //addFlight();
                 mPresenter.addFlight(actvVuelo.getText().toString());
