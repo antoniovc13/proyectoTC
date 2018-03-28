@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">@color/md_teal_400</color>
+    <color name="colorPrimaryDark">@color/color_barra_dark</color>
+    <!--
     <color name="colorPrimaryDark">@color/md_teal_600</color>
+    @color/color_barra_dark
+    -->
     <!--
     <color name="colorPrimary">@color/md_teal_500</color>
     <color name="colorPrimaryDark">@color/md_teal_700</color>
@@ -75,6 +79,7 @@
     <color name="blue_grey_primary_dark">#455A64</color>
 
     <!-- COLORES EN GENERAL-->
+    <color name="md_white">#FFFFFF</color>
     <!--reds-->
     <color name="md_red_50">#FFEBEE</color>
     <color name="md_red_100">#FFCDD2</color>
@@ -372,4 +377,5 @@
 
     <color name="warning">#FFF9C4</color>
     <color name="error_border">#F44336</color>
+    <color name="color_barra_dark">#293339</color>
 </resources>

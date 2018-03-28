@@ -34,15 +34,23 @@ import com.tivit.talmatc.data.local.constant.ParameterEnum;
 import com.tivit.talmatc.data.local.constant.RoleEnum;
 import com.tivit.talmatc.data.local.model.User;
 import com.tivit.talmatc.data.local.model.UserParameter;
+import com.tivit.talmatc.feature.dialog.DialogComponentNumeric1_4;
 import com.tivit.talmatc.feature.login.LoginActivity;
 import com.tivit.talmatc.feature.traslado_carga.selected.ChargeMoveFragment;
 import com.tivit.talmatc.feature.traslado_carga2.selected.ChargeMoveFragment2;
+import com.tivit.talmatc.feature.traslado_carga3.OnChangeTab;
+import com.tivit.talmatc.feature.traslado_carga3.OrderFragment;
 import com.tivit.talmatc.utils.CommonUtils;
 
 import butterknife.BindView;
 import timber.log.Timber;
 
-public class MainActivity extends BaseActivity implements MainContract.MainView, NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+public class MainActivity extends BaseActivity
+        implements MainContract.MainView,
+                    NavigationView.OnNavigationItemSelectedListener,
+                    OnChangeTab,
+                    DialogComponentNumeric1_4.OnSimpleDialogListener,
+                    View.OnClickListener {
 
     private MainContract.MainPresenter mPresenter;
 
@@ -67,6 +75,11 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
 
     //qr code scanner object
     //private IntentIntegrator qrScan;
+
+    OrderFragment orderFragment;
+
+    Menu menuToolbar;
+
 
     @Override
     protected void createPresenter() {
@@ -101,7 +114,8 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
         setupNavMenu();
         mPresenter.onNavMenuCreated();
         //mPresenter.onViewInitialized();
-        homeFragment2(mNavigationView.getMenu().getItem(0));
+
+        homeFragment3(mNavigationView.getMenu().getItem(0));
     }
 
 
@@ -129,6 +143,8 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
 
 //            }else if(user.getUnidad().equals(ParameterEnum.TRACTOR.getValue())){
                 mNavigationView.getMenu().findItem(R.id.menuTrasladoCarga2).setVisible(true);
+
+                mNavigationView.getMenu().findItem(R.id.menuTrasladoCarga3).setVisible(true);
   //          }
 
         }else if(user.getRole().equals(RoleEnum.ROL2.getValue())){
@@ -140,6 +156,7 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
         }
 
     }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -153,6 +170,9 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
                 break;
             case R.id.menuTrasladoCarga2:
                 homeFragment2(item);
+                break;
+            case R.id.menuTrasladoCarga3:
+                homeFragment3(item);
                 break;
             case R.id.menuRezagados1:
                 //homeFragment(item);
@@ -213,6 +233,32 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
         }
     }
 
+    private void homeFragment3(MenuItem item) {
+/*
+        try {
+            Bundle args =  new Bundle();
+            Class fragmentClass = OrderFragment.class;
+            args.putString("MESSAGE", "Welcome");
+            Fragment fragment = (Fragment) fragmentClass.newInstance();
+            fragment.setArguments(args);
+            changeFragment(fragment, item);
+
+
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        */
+        Bundle args =  new Bundle();
+        args.putString("MESSAGE", "Welcome");
+        orderFragment = new OrderFragment();
+        orderFragment = orderFragment.newInstance();
+        orderFragment.setArguments(args);
+        changeFragment(orderFragment, item);
+
+    }
+
     private void changeFragment(Fragment fragment, MenuItem item){
 
             getSupportFragmentManager()
@@ -257,26 +303,41 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.main, menu);
+        this.menuToolbar = menu;
+        showMenuToolbar(false, false, false);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        /*
+
+
         switch (item.getItemId()) {
-            case R.id.refresh:
-                loadFromApiRemoteService();
+            case R.id.id_action_marker:
+                //loadFromApiRemoteService();
                 return true;
-            case R.id.save:
-                saveFromDbToRemoteService();
+            case R.id.id_action_trasler:
+                //saveFromDbToRemoteService();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
-        */
-        return super.onOptionsItemSelected(item);
+
     }
 
+
+    public void showMenuToolbar(boolean menuVisible, boolean menuMarkerVisible, boolean menuTraslerVisible) {
+
+        this.menuToolbar.findItem(R.id.id_action_marker).setVisible(menuMarkerVisible);
+        this.menuToolbar.findItem(R.id.id_action_marker).setTitle("En camino");
+        this.menuToolbar.findItem(R.id.id_action_trasler).setVisible(menuTraslerVisible);
+    }
+
+    public void showMenuMarkerEdit(boolean blnIconStop, String textoValue){
+
+        this.menuToolbar.findItem(R.id.id_action_marker).setIcon( blnIconStop? R.mipmap.ic_marker_red:R.mipmap.ic_marker_green);
+        this.menuToolbar.findItem(R.id.id_action_marker).setTitle(textoValue);
+    }
 
 
     private void loadFromApiRemoteService() {
@@ -365,4 +426,35 @@ public class MainActivity extends BaseActivity implements MainContract.MainView,
     public void onClick(View v) {
 
     }
+
+    @Override
+    public void goToFlight() {
+        Timber.d("goToFlight");
+        orderFragment.goToFlight();
+    }
+
+    @Override
+    public void backFlight() {
+
+    }
+
+    @Override
+    public void goToFlightList(String codeFlight) {
+        orderFragment.goToFlightList(codeFlight);
+        showMenuToolbar(false, true, true);
+    }
+
+    @Override
+    public void startTravel() {
+        orderFragment.startTravel();
+        //this.onPrepareOptionsMenu(menuToolbar);
+        showMenuMarkerEdit(false, "En camino");
+    }
+
+
+    @Override
+    public void onCloseDialog() {
+        orderFragment.onCloseDialog();
+    }
+
 }

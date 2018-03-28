@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<!--
-    <item
-        android:id="@+id/refresh"
-        android:icon="@mipmap/ic_action_refresh"
-        android:title="Refrescar Lista"
-        app:showAsAction="always" />
 
-    <item
-        android:id="@+id/save"
-        android:icon="@mipmap/ic_save"
-        android:title="Guardar Lista"
-        app:showAsAction="always" />
--->
+    <item android:id="@+id/id_action_marker"
+        android:icon="@mipmap/ic_marker_white"
+        android:title="Marker"
+        app:showAsAction="always"
+        android:visible="true"
+        />
+
+    <item android:id="@+id/id_action_trasler"
+        android:icon="@mipmap/ic_stat_logo_png"
+        android:title="Traslado"
+        app:showAsAction="always"
+        android:visible="true"
+         />
+
 </menu>

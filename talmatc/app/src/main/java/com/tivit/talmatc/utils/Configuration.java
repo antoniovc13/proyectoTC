@@ -47,4 +47,10 @@ public class Configuration {
     public static final String CODE_ARRIVE = "ARRIVE";
     public static final String CODE_DEPARTURE = "DEPARTURE";
 
+    // CONSTANTS
+    public static String TAB_SELECTED = "TAB_SELECTED";
+    public static String TAB_PASO01 = "TAB_PASO01";
+    public static String TAB_PASO02 = "TAB_PASO02";
+    public static String TAB_PASO03 = "TAB_PASO03";
+
 }
