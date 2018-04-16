@@ -13,7 +13,7 @@
         android:icon="@mipmap/ic_stat_logo_png"
         android:title="Traslado"
         app:showAsAction="always"
-        android:visible="true"
+        android:visible="false"
          />
 
 </menu>

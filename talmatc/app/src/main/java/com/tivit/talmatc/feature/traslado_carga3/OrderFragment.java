@@ -65,7 +65,7 @@ public class OrderFragment extends BaseFragment  {
         //mTabLayout.addTab(mTabLayout.newTab().setText("PASO 01"));
         TabLayout.Tab firstTab = mTabLayout.newTab();
         //firstTab.setText("PASO 01");
-        firstTab.setIcon(R.mipmap.ic_number_round_gray_one); // set an icon for the first tab
+        firstTab.setIcon(R.mipmap.ic_number_round_red_one); // set an icon for the first tab
         mTabLayout.addTab(firstTab); // add  the tab at in the TabLayout
 
         //mTabLayout.addTab(mTabLayout.newTab().setText("PASO 02"));
@@ -116,7 +116,8 @@ public class OrderFragment extends BaseFragment  {
     public void goToFlight() {
         Timber.d("goToFlight");
         mViewPager.setCurrentItem(TAB_PASO2);
-        (mTabLayout.getTabAt(TAB_PASO1)).setIcon(R.mipmap.ic_number_round_red_one);
+        //(mTabLayout.getTabAt(TAB_PASO1)).setIcon(R.mipmap.ic_number_round_red_one);
+        (mTabLayout.getTabAt(TAB_PASO2)).setIcon(R.mipmap.ic_number_round_red_two);
         (mTabLayout.getTabAt(TAB_PASO2)).select();
     }
 
@@ -127,12 +128,13 @@ public class OrderFragment extends BaseFragment  {
     public void goToFlightList(String codeFlight) {
         ((FlightListFragment) mPagerAdapter.getItem(TAB_PASO3)).setCodeFlight(codeFlight);
         mViewPager.setCurrentItem(TAB_PASO3);
-        (mTabLayout.getTabAt(TAB_PASO2)).setIcon(R.mipmap.ic_number_round_red_two);
+        //(mTabLayout.getTabAt(TAB_PASO2)).setIcon(R.mipmap.ic_number_round_red_two);
+        (mTabLayout.getTabAt(TAB_PASO3)).setIcon(R.mipmap.ic_number_round_red_three);
         (mTabLayout.getTabAt(TAB_PASO3)).select();
     }
 
     public void startTravel() {
-        (mTabLayout.getTabAt(TAB_PASO3)).setIcon(R.mipmap.ic_number_round_red_three);
+        //(mTabLayout.getTabAt(TAB_PASO3)).setIcon(R.mipmap.ic_number_round_red_three);
 
     }
 
