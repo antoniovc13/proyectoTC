@@ -2,16 +2,12 @@ package com.tivit.talmatc.feature.login;
 
 import com.google.gson.GsonBuilder;
 import com.tivit.talmatc.base.ui.BaseInteractor;
-import com.tivit.talmatc.data.local.constant.ParameterEnum;
-import com.tivit.talmatc.data.local.model.Parameter;
 import com.tivit.talmatc.data.remote.model.ApiCallback;
 import com.tivit.talmatc.data.remote.model.Authorization;
 import com.tivit.talmatc.data.remote.model.Login;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.observers.DisposableObserver;

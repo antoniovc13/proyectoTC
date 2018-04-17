@@ -5,7 +5,6 @@ import com.tivit.talmatc.base.mvp.MvpPresenter;
 import com.tivit.talmatc.base.mvp.MvpView;
 import com.tivit.talmatc.data.local.model.Order;
 import com.tivit.talmatc.data.local.model.User;
-import com.tivit.talmatc.data.local.model.UserParameter;
 
 import java.util.List;
 

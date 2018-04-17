@@ -7,8 +7,6 @@ import com.tivit.talmatc.data.local.constant.ParameterEnum;
 import com.tivit.talmatc.data.local.model.Flight;
 import com.tivit.talmatc.data.local.model.Parameter;
 import com.tivit.talmatc.data.local.model.UserParameter;
-import com.tivit.talmatc.feature.traslado_carga.flight_list.FlightListContract;
-import com.tivit.talmatc.utils.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;

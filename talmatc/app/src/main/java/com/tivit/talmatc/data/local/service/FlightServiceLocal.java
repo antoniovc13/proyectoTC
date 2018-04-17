@@ -1,9 +1,6 @@
 package com.tivit.talmatc.data.local.service;
 
 import com.tivit.talmatc.data.local.model.Flight;
-import com.tivit.talmatc.data.local.model.Parameter;
-import com.tivit.talmatc.data.remote.model.Authorization;
-import com.tivit.talmatc.data.remote.model.Login;
 
 import java.util.List;
 

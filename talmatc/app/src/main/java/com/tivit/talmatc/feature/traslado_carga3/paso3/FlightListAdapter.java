@@ -75,16 +75,15 @@ public class FlightListAdapter extends RecyclerView.Adapter<FlightListAdapter.Fl
 
     @Override
     public FlightListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new FlightListViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view_flight, parent, false));
+        return new FlightListViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view_flight2, parent, false));
     }
 
     public static class FlightListViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.tv_flight_code)      TextView tvFlightCode;
         @BindView(R.id.tv_pea)              TextView tvPEA;
         @BindView(R.id.tv_date_assignation) TextView tvDateAssignation;
-        //@BindView(R.id.tv_date_work)      TextView tvDateWork;
         @BindView(R.id.tv_count_elements)   TextView tvCountElements;
-        @BindView(R.id.linear_status)       View linearStatus;
+        //@BindView(R.id.linear_status)       View linearStatus;
         @BindView(R.id.iv_code_flight)      ImageView ivCodeFlight;
 
 
@@ -100,12 +99,19 @@ public class FlightListAdapter extends RecyclerView.Adapter<FlightListAdapter.Fl
 
         holder.tvFlightCode.setText(data.getCode());
         holder.tvPEA.setText(data.getPea());
-        holder.tvDateAssignation.setText( data.getEta() +" / "+ data.getEtd());
-        //holder.tvDateWork.setText(data.getEtd());
+        //holder.tvDateAssignation.setText( data.getEta() +" / "+ data.getEtd());
+        holder.tvDateAssignation.setText( data.getEta() +"/"+ data.getEtd());
         holder.tvCountElements.setText(data.getCountElements());
-        holder.linearStatus.setBackgroundColor((data.getCountElements()!=null&&!data.getCountElements().equals(""))?ContextCompat.getColor(TivitApplication.getAppContext(), R.color.green_primary) : ContextCompat.getColor(TivitApplication.getAppContext(), R.color.red_primary));
+        //holder.linearStatus.setBackgroundColor((data.getCountElements()!=null&&!data.getCountElements().equals(""))?ContextCompat.getColor(TivitApplication.getAppContext(), R.color.green_primary) : ContextCompat.getColor(TivitApplication.getAppContext(), R.color.red_primary));
         holder.ivCodeFlight.setImageResource(getCodeFlight().equals(Configuration.CODE_DEPARTURE)?R.mipmap.ic_flight_takeoff_white_24dp:R.mipmap.ic_flight_land_white_24dp);
-        holder.ivCodeFlight.setBackgroundColor((data.getCountElements()!=null&&!data.getCountElements().equals(""))?ContextCompat.getColor(TivitApplication.getAppContext(), R.color.green_primary) : ContextCompat.getColor(TivitApplication.getAppContext(), R.color.red_primary));
+        //holder.ivCodeFlight.setBackgroundColor((data.getCountElements()!=null&&!data.getCountElements().equals(""))?ContextCompat.getColor(TivitApplication.getAppContext(), R.color.green_primary) : ContextCompat.getColor(TivitApplication.getAppContext(), R.color.red_primary));
+        holder.ivCodeFlight.setBackground(
+                (data.getCountElements()!=null&&!data.getCountElements().equals(""))
+                        ?
+                        ContextCompat.getDrawable(TivitApplication.getAppContext(),R.drawable.bg_rectangle_green)
+                        :
+                        ContextCompat.getDrawable(TivitApplication.getAppContext(),R.drawable.bg_rectangle_red)
+                );
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

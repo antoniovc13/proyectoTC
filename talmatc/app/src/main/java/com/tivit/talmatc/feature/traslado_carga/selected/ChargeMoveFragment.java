@@ -1,39 +1,24 @@
 package com.tivit.talmatc.feature.traslado_carga.selected;
 
-import android.content.BroadcastReceiver;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.tivit.talmatc.R;
 import com.tivit.talmatc.base.generic.GenericSpinnerAdapter;
 import com.tivit.talmatc.base.generic.GenericSpinnerItem;
-import com.tivit.talmatc.base.ui.BaseActivity;
 import com.tivit.talmatc.base.ui.BaseFragment;
-import com.tivit.talmatc.data.local.constant.ParameterEnum;
 import com.tivit.talmatc.data.local.model.Parameter;
 import com.tivit.talmatc.data.local.model.User;
 import com.tivit.talmatc.data.remote.model.Authorization;
 import com.tivit.talmatc.feature.traslado_carga.flight.FlightActivity;
-import com.tivit.talmatc.feature.traslado_carga.flight.FlightContract;
-import com.tivit.talmatc.feature.traslado_carga.flight.FlightPresenter;
-import com.tivit.talmatc.feature.traslado_carga.flight_list.FlightListActivity;
-import com.tivit.talmatc.utils.Util;
 
 import java.util.ArrayList;
 import java.util.List;

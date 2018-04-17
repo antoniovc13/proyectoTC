@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 
 import com.tivit.talmatc.base.ui.BaseInteractor;
 import com.tivit.talmatc.data.local.model.Flight;
-import com.tivit.talmatc.feature.traslado_carga.flight_list.FlightListContract;
 
 import java.util.ArrayList;
 import java.util.List;

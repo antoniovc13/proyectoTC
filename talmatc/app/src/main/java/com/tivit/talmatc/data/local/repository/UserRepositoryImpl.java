@@ -2,17 +2,12 @@ package com.tivit.talmatc.data.local.repository;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
-import android.database.sqlite.SQLiteDatabase;
 
 import com.tivit.talmatc.data.local.DbContract;
 import com.tivit.talmatc.data.local.DbOpenHelper;
-import com.tivit.talmatc.data.local.model.Parameter;
 import com.tivit.talmatc.data.local.model.User;
 import com.tivit.talmatc.data.remote.model.Authorization;
 import com.tivit.talmatc.data.remote.model.Login;
-
-import java.util.List;
 
 /**
  * Created by Alexzander Guillermo on 07/09/2017.

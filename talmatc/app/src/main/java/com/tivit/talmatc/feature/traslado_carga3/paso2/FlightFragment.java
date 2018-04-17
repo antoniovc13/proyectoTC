@@ -3,13 +3,12 @@ package com.tivit.talmatc.feature.traslado_carga3.paso2;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.tivit.talmatc.R;
 import com.tivit.talmatc.base.generic.GenericSpinnerAdapter;
@@ -18,8 +17,6 @@ import com.tivit.talmatc.base.ui.BaseFragment;
 import com.tivit.talmatc.data.local.model.Parameter;
 import com.tivit.talmatc.feature.main.MainActivity;
 import com.tivit.talmatc.feature.traslado_carga3.OnChangeTab;
-import com.tivit.talmatc.feature.traslado_carga3.OrderFragment;
-import com.tivit.talmatc.feature.traslado_carga3.paso3.FlightListFragment;
 import com.tivit.talmatc.utils.Configuration;
 
 import java.util.ArrayList;
@@ -42,11 +39,14 @@ public class FlightFragment extends BaseFragment implements FlightContract.Fligh
 
     // VIEWS
     @BindView(R.id.id_spi_pointini)         Spinner     spiPointinit;
+    /*
     @BindView(R.id.iv_flight_departure)     ImageView   ivFlightDeparture;
     @BindView(R.id.iv_flight_arrive)        ImageView   ivFlightArrive;
     @BindView(R.id.tv_flight_departure)     TextView    tvFlightDeparture;
     @BindView(R.id.tv_flight_arrive)        TextView    tvFlightArrive;
-
+    */
+    @BindView(R.id.ly_flight_arrive)        CardView cvFlightArrive;
+    @BindView(R.id.ly_flight_departure)     CardView cvFlightDeparture;
     //ADAPTERS
     private GenericSpinnerAdapter adapter;
     //DATA
@@ -83,10 +83,14 @@ public class FlightFragment extends BaseFragment implements FlightContract.Fligh
 */
         loadSpinners();
 
+        /*
         ivFlightDeparture.setOnClickListener(this);
         ivFlightArrive.setOnClickListener(this);
         tvFlightDeparture.setOnClickListener(this);
         tvFlightArrive.setOnClickListener(this);
+        */
+        cvFlightArrive.setOnClickListener(this);
+        cvFlightDeparture.setOnClickListener(this);
 
         mPresenter.onViewInitialized();
     }

@@ -1,8 +1,6 @@
 package com.tivit.talmatc.feature.traslado_carga3;
 
-import com.tivit.talmatc.base.mvp.MvpView;
 import com.tivit.talmatc.base.ui.BasePresenter;
-import com.tivit.talmatc.feature.traslado_carga3.paso1.ChargeMoveInteractor;
 
 /**
  * Created by Antonio.Valdivieso on 27/03/2018.

@@ -1,8 +1,6 @@
 package com.tivit.talmatc.data.remote;
 
 //import com.tivit.talmatc.data.remote.service.OrderService;
-import com.tivit.talmatc.data.remote.ApiEndPoint;
-import com.tivit.talmatc.data.remote.AppRemoteData;
 import com.tivit.talmatc.data.remote.service.UserService;
 import com.tivit.talmatc.utils.TokenAuthenticator;
 import com.tivit.talmatc.utils.TokenInterceptor;

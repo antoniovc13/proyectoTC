@@ -1,7 +1,5 @@
 package com.tivit.talmatc.feature.login;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,19 +10,13 @@ import android.widget.ScrollView;
 
 import com.tivit.talmatc.R;
 import com.tivit.talmatc.base.ui.BaseActivity;
-import com.tivit.talmatc.data.remote.model.Authorization;
 import com.tivit.talmatc.data.remote.model.Login;
 //import com.tivit.talmatc.feature.main.MainActivity;
 import com.tivit.talmatc.feature.main.MainActivity;
-import com.tivit.talmatc.feature.traslado_carga.flight.FlightActivity;
 import com.tivit.talmatc.utils.KeyboardUtils;
 import com.tivit.talmatc.utils.Util;
-import com.tivit.talmatc.utils.ViewUtils;
 
 import butterknife.BindView;
-import timber.log.Timber;
-
-import static com.tivit.talmatc.utils.ViewUtils.showProgressDialog;
 
 /**
  * Created by Alexzander Guillermo on 29/08/2017.

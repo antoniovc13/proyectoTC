@@ -4,14 +4,12 @@ import com.tivit.talmatc.base.ui.BaseInteractor;
 import com.tivit.talmatc.data.local.constant.ParameterEnum;
 import com.tivit.talmatc.data.local.model.Parameter;
 import com.tivit.talmatc.data.local.model.UserParameter;
-import com.tivit.talmatc.feature.traslado_carga.flight_list.FlightListContract;
 
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
-import timber.log.Timber;
 
 /**
  * Created by Alexzander Guillermo on 28/08/2017.

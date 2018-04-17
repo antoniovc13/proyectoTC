@@ -21,16 +21,12 @@ import com.tivit.talmatc.data.local.model.User;
 import com.tivit.talmatc.data.remote.model.Authorization;
 import com.tivit.talmatc.feature.main.MainActivity;
 import com.tivit.talmatc.feature.traslado_carga3.OnChangeTab;
-import com.tivit.talmatc.feature.traslado_carga3.OrderContract;
-import com.tivit.talmatc.feature.traslado_carga3.OrderFragment;
-import com.tivit.talmatc.feature.traslado_carga3.OrderPresenter;
 import com.tivit.talmatc.utils.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import timber.log.Timber;
 
 //import com.tivit.talmatc.feature.main.MainActivity;
 
@@ -88,10 +84,10 @@ public class ChargeMoveFragment extends BaseFragment implements ChargeMoveContra
     public void onAttach(Context context){
         super.onAttach(context);
         MainActivity mainActivity;
-        Timber.d("onAttach: "+context);
+        //Timber.d("onAttach: "+context);
         if  (context instanceof OnChangeTab){
             onChangeTab = (OnChangeTab) context;
-            Timber.d("onAttach onChangeTab: "+onChangeTab);
+            //Timber.d("onAttach onChangeTab: "+onChangeTab);
         }else{
             throw new RuntimeException(context.toString()+"must implement OrderContract");
         }
@@ -108,7 +104,6 @@ public class ChargeMoveFragment extends BaseFragment implements ChargeMoveContra
 
         loadSpinners();
         btnSubirElems.setOnClickListener(this);
-
 
         mPresenter.onViewInitialized();
     }
@@ -206,14 +201,14 @@ public class ChargeMoveFragment extends BaseFragment implements ChargeMoveContra
         next(bundle, FlightFragment.class);
         */
         //orderFragment.goToFlight();
-        Timber.d("openSelectFlightActivity");
+        //Timber.d("openSelectFlightActivity");
         onChangeTab.goToFlight();
 
     }
 
     @Override
     public void updateTractorSpinner(List<Parameter> list) {
-        Timber.d("lista Spinner:"+list.size());
+        //Timber.d("lista Spinner:"+list.size());
         listTractor.clear();
         listTractor.addAll(list);
 
@@ -225,8 +220,8 @@ public class ChargeMoveFragment extends BaseFragment implements ChargeMoveContra
 
     @Override
     public void updateUser(Authorization authorization) {
-        Timber.d("updateUser:"+authorization);
-        Timber.d("updateUser:"+authorization!=null?authorization.getUser().toString():"");
+        //Timber.d("updateUser:"+authorization);
+        //Timber.d("updateUser:"+authorization!=null?authorization.getUser().toString():"");
 
         user = authorization.getUser();
         tvTypeVehicle.setText(authorization.getUser().getUnidad());

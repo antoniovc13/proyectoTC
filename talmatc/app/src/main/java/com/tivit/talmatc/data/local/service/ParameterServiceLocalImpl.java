@@ -1,15 +1,9 @@
 package com.tivit.talmatc.data.local.service;
 
 import com.tivit.talmatc.data.local.DbOpenHelper;
-import com.tivit.talmatc.data.local.constant.ParameterEnum;
 import com.tivit.talmatc.data.local.model.Parameter;
-import com.tivit.talmatc.data.local.model.User;
 import com.tivit.talmatc.data.local.repository.ParameterRepository;
 import com.tivit.talmatc.data.local.repository.ParameterRepositoryImpl;
-import com.tivit.talmatc.data.local.repository.UserRepository;
-import com.tivit.talmatc.data.local.repository.UserRepositoryImpl;
-import com.tivit.talmatc.data.remote.model.Authorization;
-import com.tivit.talmatc.data.remote.model.Login;
 
 import java.util.List;
 

@@ -15,7 +15,6 @@ import com.tivit.talmatc.base.generic.GenericSpinnerAdapter;
 import com.tivit.talmatc.base.generic.GenericSpinnerItem;
 import com.tivit.talmatc.base.ui.BaseActivity;
 import com.tivit.talmatc.data.local.model.Parameter;
-import com.tivit.talmatc.feature.traslado_carga.flight_list.FlightListActivity;
 import com.tivit.talmatc.feature.traslado_carga2.flight_list.FlightListActivity2;
 import com.tivit.talmatc.utils.Configuration;
 

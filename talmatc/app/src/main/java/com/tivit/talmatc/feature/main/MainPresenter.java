@@ -3,7 +3,6 @@ package com.tivit.talmatc.feature.main;
 import com.tivit.talmatc.base.ui.BasePresenter;
 import com.tivit.talmatc.data.local.model.Order;
 import com.tivit.talmatc.data.local.model.User;
-import com.tivit.talmatc.data.local.model.UserParameter;
 
 import java.util.List;
 

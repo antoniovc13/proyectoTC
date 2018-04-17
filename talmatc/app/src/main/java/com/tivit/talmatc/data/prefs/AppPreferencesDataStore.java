@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
-import com.tivit.talmatc.data.local.model.User;
 import com.tivit.talmatc.data.local.model.UserParameter;
 import com.tivit.talmatc.data.remote.model.Authorization;
 

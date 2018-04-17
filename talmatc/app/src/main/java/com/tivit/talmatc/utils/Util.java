@@ -3,7 +3,6 @@ package com.tivit.talmatc.utils;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.CountDownTimer;
@@ -17,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tivit.talmatc.R;
-import com.tivit.talmatc.feature.login.LoginActivity;
 
 import java.text.DecimalFormat;
 import java.util.Calendar;

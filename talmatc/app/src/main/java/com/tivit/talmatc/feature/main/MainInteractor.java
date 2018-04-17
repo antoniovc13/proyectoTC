@@ -1,19 +1,11 @@
 package com.tivit.talmatc.feature.main;
 
 import com.tivit.talmatc.base.ui.BaseInteractor;
-import com.tivit.talmatc.data.local.constant.OrderEnum;
-import com.tivit.talmatc.data.local.model.Order;
-import com.tivit.talmatc.data.local.model.UserParameter;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
-import timber.log.Timber;
 
 /**
  * Created by Alexzander Guillermo on 29/08/2017.

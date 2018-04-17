@@ -1,7 +1,6 @@
 package com.tivit.talmatc.feature.traslado_carga.flight;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +17,6 @@ import com.tivit.talmatc.base.ui.BaseActivity;
 import com.tivit.talmatc.data.local.model.Parameter;
 import com.tivit.talmatc.feature.traslado_carga.flight_list.FlightListActivity;
 import com.tivit.talmatc.utils.Configuration;
-import com.tivit.talmatc.utils.Util;
 
 import java.util.ArrayList;
 import java.util.List;

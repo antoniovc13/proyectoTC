@@ -17,8 +17,6 @@ import android.widget.Toast;
 
 import com.tivit.talmatc.R;
 
-import timber.log.Timber;
-
 /**
  * Created by Alexzander Guillermo on 27/08/2017.
  */

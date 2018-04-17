@@ -12,6 +12,9 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/md_grey_300</item>
 
+        <!--Habilitar animaciones en las transiciones -->
+        <item name="android:windowContentTransitions">true</item>
+
 
     </style>
 
@@ -70,14 +73,16 @@
     <style name="TextStyle.Item" parent="TextStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">12sp</item>
+        <!--<item name="android:textSize">12sp</item>-->
+        <item name="android:textSize">13sp</item>
         <item name="android:textAppearance">@style/TextAppearance.Text.Regular</item>
     </style>
 
     <style name="TextStyle.Data" parent="TextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">12sp</item>
+        <!--<item name="android:textSize">12sp</item>-->
+        <item name="android:textSize">13sp</item>
         <item name="android:textAppearance">@style/TextAppearance.Text.Regular</item>
     </style>
 
@@ -149,14 +154,14 @@
 
 
     <style name="separator">
-        <item name="android:background">@color/md_grey_300</item>
+        <item name="android:background">@color/colorDivider</item>
         <item name="android:layout_height">1px</item>
         <item name="android:layout_width">match_parent</item>
     </style>
 
     <style name="separator_vertical">
-        <item name="android:background">#c1c1c1</item>
-        <item name="android:layout_width">1px</item>
+        <item name="android:background">@color/colorDivider</item>
+        <item name="android:layout_width">2px</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_marginLeft">10dp</item>
         <item name="android:layout_marginRight">10dp</item>
@@ -167,7 +172,8 @@
 
     <style name="data_title" parent="TextStyle.Data">
         <item name="android:textAllCaps">true</item>
-        <item name="android:textSize">10sp</item>
+        <!--<item name="android:textSize">10sp</item>-->
+        <item name="android:textSize">13sp</item>
         <item name="android:paddingTop">3dp</item>
         <item name="android:paddingBottom">3dp</item>
         <item name="android:textStyle">bold</item>
@@ -178,7 +184,8 @@
     <!-- BUTTON -->
     <style name="text_button">
         <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textSize">12sp</item>
+        <!--<item name="android:textSize">12sp</item>-->
+        <item name="android:textSize">13sp</item>
         <item name="android:clickable">true</item>
         <item name="android:layout_height">25dp</item>
         <item name="android:layout_width">65dp</item>
@@ -220,7 +227,14 @@
         <item name="android:background">@drawable/button_default_bg</item>
     </style>
 
-
+    <style name="Button_Round" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/button_round3</item>
+        <!--<item name="android:foreground">?selectableItemBackground</item>-->
+        <item name="android:textColor">@color/md_black_1000</item>
+        <item name="android:textSize">18dp</item>
+    </style>
 
     <!-- WIDGET -->
     <style name="Widget.Group" parent="@android:style/Widget">
@@ -385,7 +399,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_marginBottom">@dimen/label_value_vertical_separation</item>
-        <item name="android:textColor">@color/md_grey_800</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">13sp</item>
         <item name="android:fontFamily">sans-serif-light</item>
@@ -457,26 +471,6 @@
         <item name="colorControlActivated">@color/md_teal_A400</item>
     </style>
 
-<!--
-    <style name="Button_Round" >
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_alignParentBottom">true</item>
-        <item name="android:layout_alignParentRight">true</item>
-        <item name="android:layout_marginBottom">25dp</item>
-        <item name="android:layout_marginRight">25dp</item>
-        <item name="android:background">@drawable/button_round</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
--->
-    <style name="Button_Round" >
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
 
 
-        <item name="android:background">@drawable/button_round2</item>
-        <item name="android:textColor">@color/md_black_1000</item>
-        <item name="android:textSize">24sp</item>
-
-    </style>
 </resources>

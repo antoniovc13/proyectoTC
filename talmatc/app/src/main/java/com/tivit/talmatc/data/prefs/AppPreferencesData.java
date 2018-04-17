@@ -1,6 +1,5 @@
 package com.tivit.talmatc.data.prefs;
 
-import com.tivit.talmatc.data.local.model.User;
 import com.tivit.talmatc.data.local.model.UserParameter;
 import com.tivit.talmatc.data.remote.model.Authorization;
 

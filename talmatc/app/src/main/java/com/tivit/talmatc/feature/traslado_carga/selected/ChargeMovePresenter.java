@@ -1,15 +1,10 @@
 package com.tivit.talmatc.feature.traslado_carga.selected;
 
 import com.tivit.talmatc.base.ui.BasePresenter;
-import com.tivit.talmatc.data.local.model.Flight;
 import com.tivit.talmatc.data.local.model.Parameter;
 import com.tivit.talmatc.data.remote.model.Authorization;
-import com.tivit.talmatc.feature.traslado_carga.flight_list.FlightListContract;
-import com.tivit.talmatc.feature.traslado_carga.flight_list.FlightListInteractor;
 
 import java.util.List;
-
-import timber.log.Timber;
 
 /**
  * Created by Alexzander Guillermo on 27/08/2017.

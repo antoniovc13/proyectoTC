@@ -2,8 +2,6 @@ package com.tivit.talmatc.data.local.repository;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
-import android.database.sqlite.SQLiteDatabase;
 
 import com.tivit.talmatc.data.local.DbContract;
 import com.tivit.talmatc.data.local.DbOpenHelper;

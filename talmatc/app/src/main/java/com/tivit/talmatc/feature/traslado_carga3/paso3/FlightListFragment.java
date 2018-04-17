@@ -22,6 +22,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tivit.talmatc.R;
@@ -31,7 +32,6 @@ import com.tivit.talmatc.data.local.model.Flight;
 import com.tivit.talmatc.feature.dialog.DialogComponentNumeric1_4;
 import com.tivit.talmatc.feature.main.MainActivity;
 import com.tivit.talmatc.feature.traslado_carga3.OnChangeTab;
-import com.tivit.talmatc.feature.traslado_carga3.OrderFragment;
 import com.tivit.talmatc.utils.Configuration;
 
 import java.util.ArrayList;
@@ -141,7 +141,7 @@ public class FlightListFragment extends BaseFragment
         btnAgregarVuelo.setOnClickListener(this);
 
         listFlight = new ArrayList<Flight>();
-        Timber.d("***codeFlight: "+codeFlight);
+        //Timber.d("***codeFlight: "+codeFlight);
         mFlightListAdapter = new FlightListAdapter(listFlight, codeFlight);
         mFlightListAdapter.setCallback(this);
 
@@ -178,9 +178,10 @@ public class FlightListFragment extends BaseFragment
 
 
         final FloatingActionButton fab = (FloatingActionButton) this.getActivity().findViewById(R.id.gmail_fab);
+        //final LinearLayout lySearch = (LinearLayout) this.getActivity().findViewById(R.id.id_ly_search);
 
         fab.setVisibility(View.VISIBLE);
-        fab.startAnimation(growAnimation);
+
 
 
         shrinkAnimation.setAnimationListener(new Animation.AnimationListener() {
@@ -214,8 +215,9 @@ public class FlightListFragment extends BaseFragment
 
                     case BottomSheetBehavior.STATE_DRAGGING:
                         //Timber.d("BottomSheets STATE_DRAGGING");
-                        if (showFAB)
+                        if (showFAB) {
                             fab.startAnimation(shrinkAnimation);
+                        }
                         break;
 
                     case BottomSheetBehavior.STATE_COLLAPSED:
@@ -228,6 +230,7 @@ public class FlightListFragment extends BaseFragment
                     case BottomSheetBehavior.STATE_EXPANDED:
                         //Timber.d("BottomSheets STATE_EXPANDED");
                         showFAB = false;
+
                         break;
                     case BottomSheetBehavior.STATE_SETTLING:
                         //Timber.d("BottomSheets STATE_SETTLING");

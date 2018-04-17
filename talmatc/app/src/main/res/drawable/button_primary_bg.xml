@@ -4,12 +4,15 @@
     <!--<item android:drawable="@color/colorAccent" android:state_focused="true" />-->
     <!--<item android:drawable="@color/colorAccent" />-->
 
-    <item android:state_pressed="true" >
+    <item android:state_pressed="true"  >
         <shape android:shape="rectangle"  >
-            <corners android:radius="5dip" />
+            <corners android:radius="5dip"  />
             <!--<stroke android:width="1dip" android:color="#c1c1c1" />-->
-            <solid android:color="@color/md_grey_400"/>
+            <!--<solid android:color="@color/md_grey_400"/>-->
+            <solid android:color="@color/colorAccent"  />
+
         </shape>
+        <ripple android:color="@color/colorPrimaryDark" />
     </item>
     <item android:state_focused="true">
         <shape android:shape="rectangle"  >

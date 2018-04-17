@@ -18,7 +18,6 @@ import com.tivit.talmatc.base.ui.BaseFragment;
 import com.tivit.talmatc.data.local.model.Parameter;
 import com.tivit.talmatc.data.local.model.User;
 import com.tivit.talmatc.data.remote.model.Authorization;
-import com.tivit.talmatc.feature.traslado_carga.flight.FlightActivity;
 import com.tivit.talmatc.feature.traslado_carga2.flight.FlightActivity2;
 
 import java.util.ArrayList;

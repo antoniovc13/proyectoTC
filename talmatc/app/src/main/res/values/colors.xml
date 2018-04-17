@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/md_teal_400</color>
-    <color name="colorPrimaryDark">@color/color_barra_dark</color>
-    <!--
-    <color name="colorPrimaryDark">@color/md_teal_600</color>
-    @color/color_barra_dark
-    -->
-    <!--
     <color name="colorPrimary">@color/md_teal_500</color>
     <color name="colorPrimaryDark">@color/md_teal_700</color>
-    -->
+    <color name="colorAccent">@color/md_red_A700</color>
+    <color name="colorAccentDark">@color/md_red_A700</color>
+    <color name="colorPrimaryLight">#B2DFDB</color>
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorSecondary">#757575</color>
+    <color name="colorIcons">#FFFFFF</color>
+    <color name="colorDivider">#BDBDBD</color>
+
     <!--
-    <color name="colorPrimary">#CE161F</color>
-    <color name="colorPrimaryDark">#b4070c</color>
-    -->
-    <!--
-    <color name="colorPrimary">@color/red_primary_dark</color>
-    <color name="colorPrimaryDark">@color/md_red_A700</color>
-    -->
+    <color name="colorPrimary">@color/md_teal_400</color>
+    <color name="colorPrimaryDark">@color/color_barra_dark</color>
     <color name="colorAccent">#00BFA5</color>
+    -->
 
 
     <color name="white">#FFFFFF</color>

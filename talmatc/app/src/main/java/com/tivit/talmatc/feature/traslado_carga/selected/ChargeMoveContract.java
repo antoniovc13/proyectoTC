@@ -3,7 +3,6 @@ package com.tivit.talmatc.feature.traslado_carga.selected;
 import com.tivit.talmatc.base.mvp.MvpInteractor;
 import com.tivit.talmatc.base.mvp.MvpPresenter;
 import com.tivit.talmatc.base.mvp.MvpView;
-import com.tivit.talmatc.data.local.model.Flight;
 import com.tivit.talmatc.data.local.model.Parameter;
 import com.tivit.talmatc.data.remote.model.Authorization;
 

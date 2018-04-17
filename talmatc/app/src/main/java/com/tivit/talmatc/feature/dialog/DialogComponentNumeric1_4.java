@@ -9,13 +9,10 @@ import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.tivit.talmatc.R;
 import com.tivit.talmatc.data.local.constant.DigitEnum;
-
-import butterknife.BindView;
 
 /**
  * Created by Antonio.Valdivieso on 12/03/2018.

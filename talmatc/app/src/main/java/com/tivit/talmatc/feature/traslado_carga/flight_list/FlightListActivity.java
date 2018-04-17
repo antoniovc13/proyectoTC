@@ -2,19 +2,15 @@ package com.tivit.talmatc.feature.traslado_carga.flight_list;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.view.ContextMenu;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -26,7 +22,6 @@ import com.tivit.talmatc.base.ui.BaseActivity;
 import com.tivit.talmatc.data.local.model.Flight;
 import com.tivit.talmatc.feature.dialog.DialogComponentNumeric1_4;
 import com.tivit.talmatc.utils.Configuration;
-import com.tivit.talmatc.utils.Util;
 
 import java.util.ArrayList;
 import java.util.List;
