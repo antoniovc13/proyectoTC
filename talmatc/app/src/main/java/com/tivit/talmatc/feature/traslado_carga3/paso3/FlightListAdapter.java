@@ -113,6 +113,7 @@ public class FlightListAdapter extends RecyclerView.Adapter<FlightListAdapter.Fl
                         ContextCompat.getDrawable(TivitApplication.getAppContext(),R.drawable.bg_rectangle_red)
                 );
 
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
