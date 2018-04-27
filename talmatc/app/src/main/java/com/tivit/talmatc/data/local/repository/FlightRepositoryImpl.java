@@ -6,6 +6,7 @@ import android.database.Cursor;
 import com.tivit.talmatc.data.local.DbContract;
 import com.tivit.talmatc.data.local.DbOpenHelper;
 import com.tivit.talmatc.data.local.model.Flight;
+import com.tivit.talmatc.data.local.model.FlightResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +68,7 @@ public class FlightRepositoryImpl extends GenericRepositoryImpl<Flight> implemen
         return getMapper().toObject(c);
     }
 
+    /*
     @Override
     public List<Flight> findAllByFlagAssociate(int flag) {
         String query =  "SELECT * FROM %s " +
@@ -89,6 +91,34 @@ public class FlightRepositoryImpl extends GenericRepositoryImpl<Flight> implemen
         }
         //return findAllBy(selectQuery);
         return l;
+    }
+*/
+
+    @Override
+    public FlightResponse findAllByFlagAssociate(int flag) {
+        String query =  "SELECT * FROM %s " +
+                "WHERE %s = %s";
+
+        String selectQuery = String.format(query,
+                DbContract.TB_FLIGHT.TABLE_NAME,
+                DbContract.TB_FLIGHT.KEY_FLAG_ASSOCIATE, flag);
+        Timber.d(selectQuery);
+        //List<Flight> list = findAllBy(selectQuery);
+        //return list==null?new ArrayList<>():list;
+        List<Flight> l;
+        Timber.d(selectQuery);
+        try{
+            l = findAllBy(selectQuery);
+        }catch(Exception e){
+
+            e.printStackTrace();
+            l = new ArrayList<>();
+        }
+        FlightResponse fr = new FlightResponse();
+        fr.setContent(l == null ? new ArrayList<>():l);
+        fr.setSize(l == null ?0:l.size());
+        //return findAllBy(selectQuery);
+        return fr;
     }
 
     @Override

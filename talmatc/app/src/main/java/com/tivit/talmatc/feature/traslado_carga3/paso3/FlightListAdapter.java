@@ -1,9 +1,11 @@
 package com.tivit.talmatc.feature.traslado_carga3.paso3;
 
+import android.animation.Animator;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -122,6 +124,24 @@ public class FlightListAdapter extends RecyclerView.Adapter<FlightListAdapter.Fl
         });
 
         //holder.itemView.setOn
+    }
+
+
+    @Override
+    public void onViewAttachedToWindow(FlightListViewHolder holder) {
+        super.onViewAttachedToWindow(holder);
+        animateCircularReveal(holder.itemView);
+    }
+
+    private void animateCircularReveal(View view) {
+        int centerX =0;
+        int centerY =0;
+        int starRadius =0;
+        int endRadius = Math.max(view.getWidth(),view.getHeight()) ;
+        Animator animation = ViewAnimationUtils.createCircularReveal(view,centerX,centerY,starRadius,endRadius);
+        view.setVisibility(View.VISIBLE);
+        animation.start();
+
     }
 
     @Override

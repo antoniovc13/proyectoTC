@@ -303,6 +303,9 @@ public class MainActivity extends BaseActivity
 
 
         switch (item.getItemId()) {
+            case R.id.id_action_init2:
+                //loadFromApiRemoteService();
+                return true;
             case R.id.id_action_marker:
                 //loadFromApiRemoteService();
                 return true;
@@ -316,10 +319,13 @@ public class MainActivity extends BaseActivity
     }
 
 
-    public void showMenuToolbar(boolean menuVisible, boolean menuMarkerVisible, boolean menuTraslerVisible) {
+    public void showMenuToolbar(boolean menuInitVisible, boolean menuMarkerVisible, boolean menuTraslerVisible) {
+
+        this.menuToolbar.findItem(R.id.id_action_init2).setVisible(menuInitVisible);
 
         this.menuToolbar.findItem(R.id.id_action_marker).setVisible(menuMarkerVisible);
         this.menuToolbar.findItem(R.id.id_action_marker).setTitle("En camino");
+
         this.menuToolbar.findItem(R.id.id_action_trasler).setVisible(menuTraslerVisible);
     }
 
@@ -327,6 +333,10 @@ public class MainActivity extends BaseActivity
 
         this.menuToolbar.findItem(R.id.id_action_marker).setIcon( blnIconStop? R.mipmap.ic_marker_red:R.mipmap.ic_marker_green);
         this.menuToolbar.findItem(R.id.id_action_marker).setTitle(textoValue);
+    }
+
+    public void showMenuInitVisible(boolean menuInitVisible){
+        this.menuToolbar.findItem(R.id.id_action_init2).setVisible(menuInitVisible);
     }
 
 
@@ -353,8 +363,8 @@ public class MainActivity extends BaseActivity
 
     private void logout() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                .setTitle("¿Estas seguro que deseas cerrar sesion?")
-                .setMessage("Con esto ya no podras realizar ninguna accion dentro del App.")
+                .setTitle("Advertencia")
+                .setMessage("¿Estas seguro que deseas cerrar sesión?")
                 .setCancelable(false)
                 .setPositiveButton("SI", new DialogInterface.OnClickListener() {
                     @Override
@@ -439,6 +449,7 @@ public class MainActivity extends BaseActivity
         orderFragment.startTravel();
         //this.onPrepareOptionsMenu(menuToolbar);
         showMenuMarkerEdit(false, "En camino");
+        showMenuInitVisible(true);
     }
 
 

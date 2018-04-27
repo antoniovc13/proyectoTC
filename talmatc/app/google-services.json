@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "249269564928",
+    "firebase_url": "https://talmatc-c6f95.firebaseio.com",
+    "project_id": "talmatc-c6f95",
+    "storage_bucket": "talmatc-c6f95.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249269564928:android:1ea08ff586debf85",
+        "android_client_info": {
+          "package_name": "com.tivit.talmatc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249269564928-fk1ge69bj2qhi5jtqg6uhda701lcaqs4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKpGi8lCdkL7bxY-IzFOqLW0zF7L_B8r8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

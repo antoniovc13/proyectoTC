@@ -2,6 +2,7 @@ package com.tivit.talmatc.feature.traslado_carga3.paso3;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -32,6 +33,7 @@ import com.tivit.talmatc.data.local.model.Flight;
 import com.tivit.talmatc.feature.dialog.DialogComponentNumeric1_4;
 import com.tivit.talmatc.feature.main.MainActivity;
 import com.tivit.talmatc.feature.traslado_carga3.OnChangeTab;
+import com.tivit.talmatc.services.DownloadService;
 import com.tivit.talmatc.utils.Configuration;
 
 import java.util.ArrayList;
@@ -70,15 +72,6 @@ public class FlightListFragment extends BaseFragment
     // BottomSheetBehavior variable
     //private BottomSheetBehavior bottomSheetBehavior;
     private BottomSheetBehavior behavior;
-
-    // TextView variable
-    private TextView bottomSheetHeading;
-    // Button variables
-    private Button expandBottomSheetButton;
-    private Button collapseBottomSheetButton;
-    private Button hideBottomSheetButton;
-    private Button showBottomSheetDialogButton;
-    //private LinearLayout bottomSheet;
 
     //FlightListSwipeController swipeController;
     ItemTouchHelper.Callback callback;
@@ -241,7 +234,7 @@ public class FlightListFragment extends BaseFragment
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(FlightListFragment.this.getContext())
                                 .setTitle("¿Estas seguro que deseas iniciar viaje?")
-                                .setMessage("Con esto ya no podras realizar adición/eliminación de vuelos.")
+                                .setMessage("Con esto ya no podras agregar/eliminar vuelos.")
                                 .setCancelable(false)
                                 .setPositiveButton("SI", new DialogInterface.OnClickListener() {
                                     @Override
@@ -420,5 +413,19 @@ public class FlightListFragment extends BaseFragment
         this.codeFlight = codeFlight;
 
         //mFlightListAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Timber.d("Resume ***");
+        loadFromApiRemoteService();
+    }
+
+    private void loadFromApiRemoteService() {
+        Timber.d("loadFromApiRemoteService****");
+        Intent intent = new Intent(getActivity(), DownloadService.class);
+        intent.putExtra(DownloadService.PARAM_SOURCE, Configuration.SOURCE_RESUME);
+        getActivity().startService(intent);
     }
 }

@@ -1,6 +1,7 @@
 package com.tivit.talmatc.feature.login;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -13,10 +14,12 @@ import com.tivit.talmatc.base.ui.BaseActivity;
 import com.tivit.talmatc.data.remote.model.Login;
 //import com.tivit.talmatc.feature.main.MainActivity;
 import com.tivit.talmatc.feature.main.MainActivity;
+import com.tivit.talmatc.services.FcmInstanceService;
 import com.tivit.talmatc.utils.KeyboardUtils;
 import com.tivit.talmatc.utils.Util;
 
 import butterknife.BindView;
+import timber.log.Timber;
 
 /**
  * Created by Alexzander Guillermo on 29/08/2017.
@@ -31,6 +34,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
     @BindView(R.id.pnlSplash)           LinearLayout pnlSplash;
     @BindView(R.id.pnlLogin)            ScrollView pnlLogin;
     @BindView(R.id.et_username)         EditText etUsername;
+    //@BindView(R.id.et_token)         EditText etToken;
     @BindView(R.id.et_password)         EditText etPassword;
     @BindView(R.id.btn_auth_login)      Button btnAuthLogin;
 
@@ -54,6 +58,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
     @Override
     protected void setUp() {
         showPanelSplash();
+        Timber.d("*****FcmInstanceService:"+ FcmInstanceService.getToken());//se muestra el token firebase
         btnAuthLogin.setOnClickListener(this);
         mPresenter.onViewInitialized();
     }
@@ -124,6 +129,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
     public void showLoginView() {
         etUsername.setText("admin");
         etPassword.setText("admin");
+        //etToken.setText(FcmInstanceService.getToken());
         showPanelLogin();
     }
 
@@ -170,5 +176,16 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
     private void showPanelSplash() {
         pnlLogin.setVisibility(View.GONE);
         pnlSplash.setVisibility(View.VISIBLE);
+        /*
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

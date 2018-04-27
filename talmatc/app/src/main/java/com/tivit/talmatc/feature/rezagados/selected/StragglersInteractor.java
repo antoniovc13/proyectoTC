@@ -60,6 +60,7 @@ public class StragglersInteractor extends BaseInteractor implements StragglersCo
     public void callApiListFlightIni(final StragglersContract.OnStragglersListener onStragglersListener) {
 
         compositeDisposable.add(getAppDataManager().getAppLocalData().getFlightServiceLocal().findAllFlightAssociate()
+                .map(flightResponse -> flightResponse.getContent())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableObserver<List<Flight>>() {

@@ -37,7 +37,8 @@ public class LoginInteractor extends BaseInteractor implements LoginContract.Log
 
             @Override
             public void onFailure(List<String> message) {
-                onLoginListener.onLoginError(message.get(0));
+                //onLoginListener.onLoginError(message.get(0));
+                onLoginListener.onLoginError("Usuario y/o Contraseña incorrecta");
             }
 
             @Override

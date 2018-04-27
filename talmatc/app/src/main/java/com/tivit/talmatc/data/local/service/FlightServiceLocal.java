@@ -1,6 +1,7 @@
 package com.tivit.talmatc.data.local.service;
 
 import com.tivit.talmatc.data.local.model.Flight;
+import com.tivit.talmatc.data.local.model.FlightResponse;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import io.reactivex.Observable;
 
 public interface FlightServiceLocal {
     Observable<List<Flight>> findAllFlights();
-    Observable<List<Flight>> findAllFlightAssociate();
+    //Observable<List<Flight>> findAllFlightAssociate();
+    Observable<FlightResponse> findAllFlightAssociate();
     Observable<Flight> findFlightByCode(final String code);
 }

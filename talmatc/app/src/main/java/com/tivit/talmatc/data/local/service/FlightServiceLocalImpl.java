@@ -2,6 +2,7 @@ package com.tivit.talmatc.data.local.service;
 
 import com.tivit.talmatc.data.local.DbOpenHelper;
 import com.tivit.talmatc.data.local.model.Flight;
+import com.tivit.talmatc.data.local.model.FlightResponse;
 import com.tivit.talmatc.data.local.repository.FlightRepository;
 import com.tivit.talmatc.data.local.repository.FlightRepositoryImpl;
 
@@ -29,7 +30,7 @@ public class FlightServiceLocalImpl implements FlightServiceLocal {
     }
 
     @Override
-    public Observable<List<Flight>> findAllFlightAssociate() {
+    public Observable<FlightResponse> findAllFlightAssociate() {
         return Observable.fromCallable(() -> flightRepository.findAllByFlagAssociate(1));
     }
 

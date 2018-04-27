@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_white_1000"
+
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:gravity="center_horizontal"
@@ -18,35 +18,50 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_weight="2"
-        android:background="@color/white"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
+
         <LinearLayout
-            style="@style/Widget.Group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="10dp">
+            android:background="@color/white"
+            android:orientation="vertical">
 
-            <TextView
-                style="@style/data_label"
-                android:text="Punto de Inicio" />
+            <RelativeLayout
+                style="@style/Widget.Group.Top"
+                android:layout_margin="0dp">
 
-            <Spinner
-                android:id="@+id/id_spi_pointini"
-                style="@style/data_value_match"
-                android:layout_height="25dp"
-                android:spinnerMode="dialog"
-                android:tooltipText="Seleccionar"
-                />
+                <TextView
+                    style="@style/data_title"
+                    android:text="PUNTO DE INICIO" />
 
+            </RelativeLayout>
+
+            <View style="@style/separator" />
+
+            <LinearLayout
+                style="@style/Widget.Group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="10dp">
+
+                <Spinner
+                    android:id="@+id/id_spi_pointini"
+                    style="@style/data_value_match"
+                    android:layout_height="25dp"
+                    android:spinnerMode="dialog"
+                    android:tooltipText="Seleccionar" />
+
+
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:background="@color/md_white_1000"
+
             android:orientation="horizontal">
 
         </LinearLayout>
@@ -54,86 +69,108 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:background="@color/white"
             android:gravity="center"
+            android:orientation="vertical">
 
-            >
+            <RelativeLayout
+                style="@style/Widget.Group.Top"
+                android:layout_margin="0dp">
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/ly_flight_departure"
+                <TextView
+                    style="@style/data_title"
+                    android:text="SELECCIONAR TIPO DE VUELO" />
+
+            </RelativeLayout>
+
+            <View style="@style/separator" />
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal|center"
-                android:layout_margin="5dp"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:elevation="2dp"
-                android:foreground="?attr/selectableItemBackground"
-                card_view:cardCornerRadius="@dimen/card_recycler_corner_radius"
-                card_view:cardElevation="@dimen/card_recycler_elevation"
-                card_view:cardUseCompatPadding="true">
+                android:gravity="center"
+                android:orientation="horizontal"
 
-                <LinearLayout
+                >
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/ly_flight_departure"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical"
-                    android:paddingTop="10dp">
+                    android:layout_gravity="center_vertical|center_horizontal|center"
+                    android:layout_margin="5dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    card_view:cardCornerRadius="@dimen/card_recycler_corner_radius"
+                    card_view:cardElevation="@dimen/card_recycler_elevation"
+                    card_view:cardUseCompatPadding="true">
 
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/bg_circle_teal"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_flight_takeoff_black_24dp" />
-
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:text="Vuelo Salida"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:paddingTop="10dp">
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/ly_flight_arrive"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:elevation="2dp"
-                card_view:cardCornerRadius="@dimen/card_recycler_corner_radius"
-                card_view:cardElevation="@dimen/card_recycler_elevation"
-                card_view:cardUseCompatPadding="true">
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/bg_circle_teal"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_flight_takeoff_black_24dp" />
 
-                <LinearLayout
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="Vuelo Salida"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/ly_flight_arrive"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingTop="10dp">
+                    android:layout_margin="5dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    card_view:cardCornerRadius="@dimen/card_recycler_corner_radius"
+                    card_view:cardElevation="@dimen/card_recycler_elevation"
+                    card_view:cardUseCompatPadding="true">
 
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/bg_circle_teal"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_flight_land_black_24dp" />
-
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:text="Vuelo Llegada"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="10dp">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/bg_circle_teal"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_flight_land_black_24dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="Vuelo Llegada"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
         </LinearLayout>
-<!--
+
+
+        <!--
         <LinearLayout
             android:id="@+id/ly_flight_departure"
             android:layout_width="wrap_content"

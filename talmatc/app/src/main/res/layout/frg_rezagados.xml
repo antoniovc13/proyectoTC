@@ -12,8 +12,6 @@
     <include android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
-
-
         <LinearLayout
             style="@style/general_container"
             android:layout_width="match_parent"
@@ -39,7 +37,7 @@
 
                 <LinearLayout
                     style="@style/Widget.Group"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -49,6 +47,8 @@
 
                         <TextView
                             style="@style/data_label"
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
                             android:text="Vuelo" />
 
                         <AutoCompleteTextView
@@ -65,9 +65,27 @@
                             android:paddingTop="8dp"
                             android:textSize="13sp" />
 
-                    </LinearLayout>
+                        <RadioGroup
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
 
-                    <View style="@style/separator_vertical" />
+                            <RadioButton
+                                android:id="@+id/radioButton2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="RadioButton" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="RadioButton" />
+                        </RadioGroup>
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"

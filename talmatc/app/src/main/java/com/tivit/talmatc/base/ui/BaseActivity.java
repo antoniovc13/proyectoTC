@@ -61,7 +61,7 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
 
     @Override
     public void showLoading(String message) {
-        Timber.d("showLoading: "+message+"-"+mActivity);
+        //Timber.d("showLoading: "+message+"-"+mActivity);
         //hideLoading();
         if (mProgressDialog != null && mProgressDialog.isShowing())
             hideLoading();
@@ -70,7 +70,7 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView,
 
     @Override
     public void hideLoading() {
-        Timber.d("hideLoading: ");
+        //Timber.d("hideLoading: ");
         /*
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.cancel();

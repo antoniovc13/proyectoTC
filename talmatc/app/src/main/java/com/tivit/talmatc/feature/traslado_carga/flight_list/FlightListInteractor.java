@@ -74,6 +74,7 @@ public class FlightListInteractor extends BaseInteractor implements FlightListCo
     public void callApiListFlightIni(final FlightListContract.OnFlightListListener onFlightListListener) {
 
         compositeDisposable.add(getAppDataManager().getAppLocalData().getFlightServiceLocal().findAllFlightAssociate()
+                .map(flightResponse -> flightResponse.getContent())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableObserver<List<Flight>>() {
